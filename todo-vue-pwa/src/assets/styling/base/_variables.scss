@@ -1,3 +1,4 @@
+$font-family-default: "M PLUS Rounded 1c", system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
 // == Breakpoints ===
 $breakpoints: (
   small: 480px,
@@ -6,3 +7,18 @@ $breakpoints: (
   large: 1024px,
   largest: 1280px
 );
+
+$font-size: (
+  xs: 10,
+  sm: 12,
+  md: 14,
+  lg: 18,
+  xl: 20,
+  xxl: 26
+);
+
+$color: (
+  primary: #005AA0,
+  text: #151B1F,
+  white: #ffffff
+)
