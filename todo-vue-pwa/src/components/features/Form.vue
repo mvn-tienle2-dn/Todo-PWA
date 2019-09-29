@@ -1,6 +1,6 @@
 <template>
   <div class="page-form">
-    To do form
+    <!-- To do form -->
   </div>
 </template>
 
