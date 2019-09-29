@@ -13,13 +13,19 @@
     height: 100%;
   }
   .page-logo {
-    color: map-get($color, text);
     img {
       @include pxRem(width, 40);
       @include pxRem(height, 40);
     }
   }
   .app-title {
-    @include pxRem(font-size, map-get($font-size, sm))
+    @include pxRem(font-size, map-get($font-size, md));
+    color: map-get($color, violet);
+  }
+  .header-right {
+    img {
+      @include pxRem(width, 30px);
+      @include pxRem(height, 30px);
+    }
   }
 }
