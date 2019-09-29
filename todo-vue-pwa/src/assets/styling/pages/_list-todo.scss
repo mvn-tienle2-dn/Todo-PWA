@@ -1,0 +1,38 @@
+.page-list-todo {
+  .list-todo {
+    .todo-item {
+      position: relative;
+      font-size: 1.5rem;
+    }
+    .item-cb {
+      @include pxRem(left, 0);
+      position: absolute;
+      top: 50%;
+      margin: 0;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+    }
+    .item-name {
+      @include pxRem(padding, 15 60 15 15);
+      @include pxRem(margin-left, 45);
+      @include pxRem(font-size, map-get($font-size, lg));
+      white-space: pre-line;
+      word-break: break-all;
+      display: block;
+      line-height: 1.2;
+      transition: color .4s;
+    }
+    .item-btn {
+      @include pxRem(right, 0);
+      @include pxRem(font-size, 20);
+      color: map-get($color, text-grey);
+      transition: color .2s ease-out;
+      position: absolute;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+      background: transparent;
+      border: none;
+    }
+  }
+}
