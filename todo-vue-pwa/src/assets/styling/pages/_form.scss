@@ -1,0 +1,23 @@
+.page-form {
+  @include pxRem(padding, 20 0);
+  .input-todo {
+    @include pxRem(height, 40);
+    @include pxRem(padding, 0 15);
+    @include pxRem(border-radius, 20);
+    width: 100%;
+    border: 1px solid map-get($color, violet);
+    background: rgba(255,255,255,.2);
+    &:focus {
+      outline: none;
+    }
+  }
+  .btn-circle {
+    @include pxRem(width, 50);
+    @include pxRem(height, 40);
+    @include pxRem(margin-left, 20);
+    border-radius: 50%;
+    color: map-get($color, violet);
+    border-color: map-get($color, violet);
+    background-color: transparent;
+  }
+}

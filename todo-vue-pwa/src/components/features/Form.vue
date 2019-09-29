@@ -1,6 +1,13 @@
 <template>
   <div class="page-form">
-    To do form
+    <div class="container text-between">
+      <form>
+        <div class="flex-centered">
+          <input type="text" class="input-todo" placeholder="Enter something">
+          <button class="btn btn-circle">+</button>
+        </div>
+      </form>
+    </div>
   </div>
 </template>
 
