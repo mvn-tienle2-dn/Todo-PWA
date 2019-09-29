@@ -18,3 +18,23 @@
     right: 0;
   }
 }
+
+.btn {
+  @include border-radius(25px);
+  color: map-get($color, text);
+}
+.primary-btn {
+  background: map-get($color, primary);
+}
+
+.warning-btn {
+  background: map-get($color, warning);
+}
+
+.success-btn {
+  background: map-get($color, success);
+}
+
+.danger-btn {
+  background: map-get($color, danger);
+}
