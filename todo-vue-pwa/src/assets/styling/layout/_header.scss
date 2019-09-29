@@ -1,0 +1,25 @@
+.page-header {
+  @include pxRem(height, 70);
+  @include pxRem(font-size, 24);
+  background: map-get($color, white);
+  border-bottom: 1px solid map-get($color, border-light);
+  color: map-get($color, text);
+  width: 100%;
+  z-index: 10;
+  position: fixed;
+  transition: all .2s;
+  top: 0;
+  .container {
+    height: 100%;
+  }
+  .page-logo {
+    color: map-get($color, text);
+    img {
+      @include pxRem(width, 40);
+      @include pxRem(height, 40);
+    }
+  }
+  .app-title {
+    @include pxRem(font-size, map-get($font-size, sm))
+  }
+}

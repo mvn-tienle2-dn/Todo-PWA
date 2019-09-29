@@ -1,6 +1,5 @@
 <template>
   <div class="page-todo">
-    To do app
     <Header/>
     <TodoForm/>
     <TodoList/>
