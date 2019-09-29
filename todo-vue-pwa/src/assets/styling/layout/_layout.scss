@@ -1,0 +1,10 @@
+.container {
+  @include pxRem(padding-left, $grid-gutter);
+  @include pxRem(padding-right, $grid-gutter);
+  @extend %clr;
+  margin: 0 auto;
+  max-width: $container-width;
+}
+.page-main {
+  min-height: calc(100vh - #{f-pxRem(168)});
+}
