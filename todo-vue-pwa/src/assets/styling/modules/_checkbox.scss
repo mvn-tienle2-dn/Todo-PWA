@@ -20,10 +20,10 @@
     @include pxRem(height, 12);
     @include pxRem(left, 7);
     @include pxRem(top, 2);
+    @include pxRem(border-right, 2px solid map-get($color, green));
+    @include pxRem(border-bottom, 2px solid map-get($color, green));
     content: "";
     position: absolute;
-    border-right: 2px solid map-get($color, green);
-    border-bottom: 2px solid map-get($color, green);
     opacity: 0;
     transition: 0.3s;
     transform: rotate(45deg) scale(0);
@@ -56,10 +56,10 @@
   @include pxRem(width, 34);
   @include pxRem(height, 14);
   @include pxRem(border-radius, 18);
-	cursor: pointer;
-	text-indent: -9999rem;
-	background: rgba($color: green, $alpha: 0.16);
-	display: block;
+  cursor: pointer;
+  text-indent: -9999rem;
+  background: rgba($color: green, $alpha: 0.16);
+  display: block;
   position: relative;
   transition: all 0.3s ease-in-out;
   &:after {
