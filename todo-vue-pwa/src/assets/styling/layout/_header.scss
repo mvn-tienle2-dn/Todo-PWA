@@ -21,6 +21,7 @@
   .app-title {
     @include pxRem(font-size, map-get($font-size, md));
     color: map-get($color, violet);
+    font-weight: bold;
   }
   .header-right {
     img {
