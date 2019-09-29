@@ -1,14 +1,14 @@
 .page-header {
   @include pxRem(height, 70);
   @include pxRem(font-size, 24);
-  background: map-get($color, white);
-  border-bottom: 1px solid map-get($color, border-light);
-  color: map-get($color, text);
-  width: 100%;
-  z-index: 10;
   position: fixed;
-  transition: all .2s;
   top: 0;
+  z-index: 10;
+  width: 100%;
+  background: map-get($color, white);
+  color: map-get($color, text);
+  border-bottom: 1px solid map-get($color, border-light);
+  transition: all .2s;
   .container {
     height: 100%;
   }
