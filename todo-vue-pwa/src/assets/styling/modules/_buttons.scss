@@ -21,7 +21,9 @@
 
 .btn {
   @include border-radius(25px);
+  @include pxRem(padding, 10 0);
   color: map-get($color, text);
+  border: none;
 }
 .primary-btn {
   background: map-get($color, primary);

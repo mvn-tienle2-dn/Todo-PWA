@@ -1,17 +1,17 @@
 <template>
   <div class="footer">
-    <ul class="filter-list flex">
+    <ul class="filter-list flex flex-between flex-vertical-center flex-row flex-wrap">
       <li class="filter-item">
-        <button class="btn warning-btn">123</button>
+        <button class="btn primary-btn btn-filter">All Tasks</button>
       </li>
       <li class="filter-item">
-        <button class="btn success-btn">123213</button>
+        <button class="btn warning-btn btn-filter">Actice</button>
       </li>
       <li class="filter-item">
-        <button class="btn danger-btn">4124</button>
+        <button class="btn success-btn btn-filter">Completed</button>
       </li>
       <li class="filter-item">
-        <button class="btn primary-btn">1242</button>
+        <button class="btn danger-btn btn-filter">Clear completed</button>
       </li>
     </ul>
   </div>

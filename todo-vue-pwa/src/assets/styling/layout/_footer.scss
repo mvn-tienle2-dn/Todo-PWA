@@ -1,3 +1,39 @@
-.filter-list {
+.footer {
   @include position(fixed, null, null, 0, null);
+  background: map-get($color, white);
+  width: 100%;
+  z-index: 2;
+
+  .filter-list {
+    @include pxRem(padding, 10 20);
+    border-top: solid 1px map-get($color, grey-custom);
+  }
+  .filter-item {
+    @include pxRem(padding, 5);
+    width: 50%;
+  }
+
+  .btn-filter {
+    width: 100%;
+    min-width: 90px;
+  }
+}
+
+@media only screen and (min-width: 520px) {
+  .footer {
+    .filter-item {
+      width: 25%;
+    }
+  } 
+}
+
+@media only screen and (min-width: 767px) {
+  .footer {
+    .filter-list {
+      justify-content: center;
+    }
+    .filter-item {
+      @include pxRem(width, 180);
+    }
+  }
 }
