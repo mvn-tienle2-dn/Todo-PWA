@@ -1,0 +1,33 @@
+.page-header {
+  @include pxRem(height, 70);
+  @include pxRem(font-size, 24);
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  background: map-get($color, white);
+  color: map-get($color, text);
+  border-bottom: 1px solid map-get($color, border-light);
+  transition: all .2s;
+  .container {
+    height: 100%;
+  }
+  .page-logo {
+    img {
+      @include pxRem(width, 40);
+      @include pxRem(height, 40);
+    }
+  }
+  .app-title {
+    @include pxRem(font-size, 16);
+    color: map-get($color, violet);
+    letter-spacing: .1em;
+    text-shadow: -1px -1px 1px map-get($color, white), 1px 1px 1px map-get($color, violet-dark);
+  }
+  .header-right {
+    img {
+      @include pxRem(width, 30px);
+      @include pxRem(height, 30px);
+    }
+  }
+}
