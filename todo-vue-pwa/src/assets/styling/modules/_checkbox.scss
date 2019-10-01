@@ -48,7 +48,7 @@
     &:after {
       left: 100%;
       transform: translateX(-85%);
-      background: map-get($color, primary);
+      background: map-get($color, link);
     }
   }
 }

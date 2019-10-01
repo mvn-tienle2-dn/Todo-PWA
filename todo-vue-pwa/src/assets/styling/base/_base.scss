@@ -43,7 +43,7 @@ h5 {
   }
 }
 a {
-  color: map-get($color, primary);
+  color: map-get($color, link);
   text-decoration: none;
   cursor: pointer;
   &:hover {

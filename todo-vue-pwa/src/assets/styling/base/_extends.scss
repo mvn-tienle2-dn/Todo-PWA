@@ -34,3 +34,10 @@
     display: none;
   }
 }
+.flex-around {
+  @extend %flex-around;
+  &::before,
+  &::after {
+    display: none;
+  }
+}
