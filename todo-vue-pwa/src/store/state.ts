@@ -17,6 +17,36 @@ export default {
       content: 'Implement logic',
       status: false,
     },
+    {
+      id: 'abcd',
+      content: 'Making UI',
+      status: true,
+    },
+    {
+      id: 'ysgfyds',
+      content: 'Implement logic',
+      status: false,
+    },
+    {
+      id: 'abcd',
+      content: 'Making UI',
+      status: true,
+    },
+    {
+      id: 'ysgfyds',
+      content: 'Implement logic',
+      status: false,
+    },
+    {
+      id: 'abcd',
+      content: 'Making UI',
+      status: true,
+    },
+    {
+      id: 'ysgfyds',
+      content: 'Implement logic',
+      status: false,
+    },
   ],
   filter: null,
 } as State;

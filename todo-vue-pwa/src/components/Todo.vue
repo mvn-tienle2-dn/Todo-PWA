@@ -1,8 +1,10 @@
 <template>
   <div class="page-todo">
     <Header/>
-    <TodoForm/>
-    <TodoList/>
+    <div class="page-main">
+      <TodoForm/>
+      <TodoList/>
+    </div>
     <Footer/>
   </div>
 </template>
