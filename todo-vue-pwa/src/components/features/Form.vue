@@ -19,7 +19,7 @@
     data() {
       return {
         content: null,
-      }
+      };
     },
     methods: {
       ...mapActions(['addTodo']),
