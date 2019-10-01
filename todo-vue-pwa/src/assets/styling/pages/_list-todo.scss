@@ -1,5 +1,5 @@
 .page-list-todo {
-  @include pxRem(padding, 20 0);
+  @include pxRem(padding-bottom, 20);
   .list-todo {
     .todo-item {
       @include pxRem(padding, 20 0);
