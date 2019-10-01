@@ -4,7 +4,7 @@
       <form>
         <div class="flex-centered">
           <input type="text" class="input-todo" placeholder="What needs to be done?">
-          <button class="btn-circle"><i class="fa fa-plus"></i></button>
+          <button class="btn btn-circle"><i class="fa fa-plus"></i></button>
         </div>
       </form>
     </div>

@@ -23,8 +23,12 @@
   @include border-radius(25);
   @include pxRem(padding, 10 0);
   color: map-get($color, dark-text);
+}
+
+.btn-none-border {
   border: none;
 }
+
 .primary-btn {
   background: map-get($color, primary);
 }
