@@ -49,6 +49,7 @@
   .checkbox-label {
     @include pxRem(font-size, 17);
     @include pxRem(margin-right, 20);
+    color: map-get($color, text-dark-grey);
     &:before {
       @include pxRem(width, 20);
       @include pxRem(height, 20);
