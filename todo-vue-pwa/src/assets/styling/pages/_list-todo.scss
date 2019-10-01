@@ -58,4 +58,7 @@
       border-radius: 100%;
     }
   }
+  .done {
+    color: map-get($color, green);
+  }
 }
