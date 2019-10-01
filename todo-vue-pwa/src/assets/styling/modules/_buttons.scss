@@ -29,18 +29,18 @@
   border: none;
 }
 
-.primary-btn {
+.btn-primary {
   background: map-get($color, primary);
 }
 
-.warning-btn {
+.btn-warning {
   background: map-get($color, warning);
 }
 
-.success-btn {
+.btn-success {
   background: map-get($color, success);
 }
 
-.danger-btn {
+.btn-danger {
   background: map-get($color, danger);
 }
