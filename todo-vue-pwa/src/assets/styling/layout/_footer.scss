@@ -6,7 +6,7 @@
 
   .filter-list {
     @include pxRem(padding, 10 20);
-    border-top: solid 1px map-get($color, grey-custom);
+    border-top: solid 1px map-get($color, border-light);
   }
   .filter-item {
     @include pxRem(padding, 5);

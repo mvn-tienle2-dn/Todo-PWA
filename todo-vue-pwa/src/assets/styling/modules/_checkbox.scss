@@ -1,0 +1,78 @@
+
+.checkbox-label {
+  display: flex;
+  cursor: pointer;
+  position: relative;
+  &:before {
+    @include pxRem(width, 18);
+    @include pxRem(height, 18);
+    @include pxRem(margin-right, 5);
+    @include pxRem(border-radius, 2);
+    @include pxRem(font-size, map-get($font-size, md));
+    @extend %flex-centered;
+    content: "";
+    border: 1px solid map-get($color, border-light);
+    color: transparent;
+    transition: 0.4s;
+  }
+  &:after {
+    @include pxRem(width, 5);
+    @include pxRem(height, 12);
+    @include pxRem(left, 7);
+    @include pxRem(top, 2);
+    @include pxRem(border-right, 2px solid map-get($color, green));
+    @include pxRem(border-bottom, 2px solid map-get($color, green));
+    content: "";
+    position: absolute;
+    opacity: 0;
+    transition: 0.3s;
+    transform: rotate(45deg) scale(0);
+  }
+}
+.checkbox-text {
+  display: inline-block;
+  text-align: left;
+}
+.checkbox-input {
+  &:checked {
+    + .checkbox-label::after {
+      opacity: 1;
+      transform: rotate(45deg) scale(1);
+    }
+  }
+}
+// checkbox-switch
+.checkbox-switch {
+  &:checked + .label-switch {
+    background: map-get($color, secondary);
+    &:after {
+      left: 100%;
+      transform: translateX(-85%);
+      background: map-get($color, link);
+    }
+  }
+}
+.label-switch {
+  @include pxRem(width, 34);
+  @include pxRem(height, 14);
+  @include pxRem(border-radius, 18);
+  cursor: pointer;
+  text-indent: -9999rem;
+  background: rgba($color: green, $alpha: 0.16);
+  display: block;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  &:after {
+    @include pxRem(width, 20);
+    @include pxRem(height, 20);
+    @include pxRem(top, -3);
+    @include pxRem(box-shadow, 1 2 5 rgba($color: green, $alpha: 0.3));
+    content: '';
+    position: absolute;
+    left: -80%;
+    transform: translateX(100%);
+    background: map-get($color, white);
+    border-radius: 100%;
+    transition: 0.3s;
+  }
+}
