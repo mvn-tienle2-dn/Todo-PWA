@@ -1,4 +1,4 @@
-.footer {
+.page-footer {
   @include position(fixed, null, null, 0, null);
   background: map-get($color, white);
   width: 100%;
@@ -16,19 +16,21 @@
   .btn-filter {
     width: 100%;
     min-width: 90px;
+    font-size: 12px;
   }
 }
 
-@media only screen and (min-width: 520px) {
-  .footer {
+
+@include respond-above("small") {
+  .page-footer {
     .filter-item {
       width: 25%;
     }
-  } 
+  }
 }
 
-@media only screen and (min-width: 767px) {
-  .footer {
+@include respond-above("medium") {
+  .page-footer {
     .filter-list {
       justify-content: center;
     }

@@ -1,5 +1,5 @@
 <template>
-  <div class="footer">
+  <div class="page-footer">
     <ul class="filter-list flex flex-between flex-vertical-center flex-row flex-wrap">
       <li class="filter-item">
         <button class="btn primary-btn btn-filter">All Tasks</button>

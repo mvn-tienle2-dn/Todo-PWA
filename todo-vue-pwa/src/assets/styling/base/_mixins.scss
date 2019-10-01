@@ -130,7 +130,7 @@
 
 // === BORDER RADIUS ===
 @mixin border-radius($radius) {
-  border-radius: $radius;
-  -webkit-border-radius: $radius;
-  -moz-border-radius: $radius;
+  @include pxRem(boder-radius, $radius);
+  @include pxRem(-webkit-border-radius, $radius);
+  @include pxRem(-moz-border-radius, $radius);
 }
