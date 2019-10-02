@@ -1,7 +1,7 @@
 export interface State {
   counter: number;
   todos: Array<{ id: string; content: string; status: State['filter'] }>;
-  filter: null | true | false;
+  filter: null | 'done' | 'notdone';
 }
 
 export default {
@@ -10,12 +10,12 @@ export default {
     {
       id: 'abcd',
       content: 'Making UI',
-      status: true,
+      status: 'done',
     },
     {
       id: 'ysgfyds',
       content: 'Implement logic',
-      status: false,
+      status: 'notdone',
     },
   ],
   filter: null,

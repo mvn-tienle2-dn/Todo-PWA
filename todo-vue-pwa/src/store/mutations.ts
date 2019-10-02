@@ -11,7 +11,10 @@ export default {
     state.todos.push({
       id: Math.random().toString(32).replace('0.', ''),
       content: payload,
-      status: false,
+      status: 'notdone',
     });
+  },
+  changeFilter: (state: { filter: any; }, payload: any) => {
+    state.filter = payload;
   },
 };
