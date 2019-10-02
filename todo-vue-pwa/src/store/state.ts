@@ -6,17 +6,6 @@ export interface State {
 
 export default {
   counter: 0,
-  todos: [
-    {
-      id: 'abcd',
-      content: 'Making UI',
-      status: 'done',
-    },
-    {
-      id: 'ysgfyds',
-      content: 'Implement logic',
-      status: 'notdone',
-    },
-  ],
+  todos: [],
   filter: null,
 } as State;

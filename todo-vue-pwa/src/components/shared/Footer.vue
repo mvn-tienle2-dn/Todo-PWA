@@ -23,6 +23,6 @@
     name: 'Footer',
     methods: {
       ...mapActions(['changeFilter']),
-    }
+    },
   });
 </script>

@@ -8,7 +8,7 @@ export default {
       if (!filter) {
         return true;
       }
-      return todo.status = filter;
+      return todo.status === filter;
     });
   },
 };

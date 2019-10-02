@@ -14,7 +14,7 @@ export default {
       status: 'notdone',
     });
   },
-  changeFilter: (state: { filter: any; }, payload: any) => {
+  applyFilter: (state: { filter: any; }, payload: any) => {
     state.filter = payload;
   },
 };

@@ -9,6 +9,6 @@ export default {
     commit('addTodo', payload);
   },
   changeFilter: ({commit}: any, payload: any) => {
-    commit('changeFilter', payload);
+    commit('applyFilter', payload);
   },
 };
