@@ -11,4 +11,7 @@ export default {
   changeFilter: ({commit}: any, payload: any) => {
     commit('applyFilter', payload);
   },
+  markDone: ({commit}: any, payload: any) => {
+    commit('markDone', payload);
+  },
 };

@@ -17,4 +17,15 @@ export default {
   applyFilter: (state: { filter: any; }, payload: any) => {
     state.filter = payload;
   },
+  markDone: (state: State, payload: any) => {
+    const idx = state.todos.findIndex((todo: { id: any; }) => todo.id === payload);
+    if (idx < 0) {
+      return;
+    }
+    if (state.todos[idx].status === 'done') {
+      state.todos[idx].status = 'notdone';
+    } else {
+      state.todos[idx].status = 'done';
+    }
+  },
 };
