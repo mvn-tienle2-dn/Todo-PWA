@@ -61,4 +61,16 @@
   .done {
     color: map-get($color, green);
   }
+  .no-task {
+    @include pxRem(padding, 25 15);
+    font-style: italic;
+    color: map-get($color, text-dark-grey);
+    opacity: .5;
+    .fa-tasks {
+      @include pxRem(font-size, 25);
+    }
+    .no-task-msg {
+      @include pxRem(font-size, 12);
+    }
+  }
 }
