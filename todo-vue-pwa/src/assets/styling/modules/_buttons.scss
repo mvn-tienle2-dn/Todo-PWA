@@ -23,6 +23,9 @@
   @include border-radius(25);
   @include pxRem(padding, 10 0);
   color: map-get($color, dark-text);
+  &:focus {
+    outline: none;
+  }
 }
 
 .btn-none-border {
