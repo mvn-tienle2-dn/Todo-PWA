@@ -31,3 +31,14 @@
     }
   }
 }
+@include respond-above("medium") {
+  .page-header {
+    @include pxRem(padding, 0 100);
+  }
+}
+
+@include respond-above("large") {
+  .page-header {
+    @include pxRem(padding, 0 220);
+  }
+}

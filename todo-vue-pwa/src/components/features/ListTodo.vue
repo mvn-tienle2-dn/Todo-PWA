@@ -1,6 +1,6 @@
 <template>
   <div class="page-list-todo">
-    <div class="container">
+    <div class="">
       <ul class="list-todo">
         <li v-for="(todo, idx) in todoList" :key="idx" class="todo-item">
           <div class="checkbox-section">
