@@ -28,4 +28,11 @@ export default {
       state.todos[idx].status = 'done';
     }
   },
+  delTodo: (state: State, payload: any) => {
+    const idx = state.todos.findIndex((todo: { id: any; }) => todo.id === payload);
+    if (idx < 0) {
+      return;
+    }
+    state.todos.splice(idx, 1);
+  },
 };

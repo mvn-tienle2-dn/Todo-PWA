@@ -8,7 +8,7 @@
             false" id="status" @change="mark(todo)">
             <label class="checkbox-label" v-bind:class="todo.status === 'done' ? 'done' : ''" for="status">{{todo.content}}</label>
           </div>
-          <button class="item-btn"><i class="fa fa-times"></i></button>
+          <button class="item-btn" @click="remove(todo)"><i class="fa fa-times"></i></button>
         </li>
       </ul>
     </div>
@@ -23,7 +23,7 @@
       ...mapGetters(['todoList']),
     },
     methods: {
-      ...mapActions(['markDone']),
+      ...mapActions(['markDone', 'delTodo']),
       mark(todo: any) {
         if (!todo) {
           return;
@@ -31,6 +31,13 @@
 
         this.markDone(todo.id);
       },
+      remove(todo: any) {
+        if (!todo) {
+          return;
+        }
+
+        this.delTodo(todo.id);
+      }
     },
   });
 </script>

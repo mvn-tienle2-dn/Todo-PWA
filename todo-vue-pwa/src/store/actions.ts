@@ -14,4 +14,7 @@ export default {
   markDone: ({commit}: any, payload: any) => {
     commit('markDone', payload);
   },
+  delTodo: ({commit}: any, payload: any) => {
+    commit('delTodo', payload);
+  },
 };
