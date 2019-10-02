@@ -11,7 +11,7 @@
         <button class="btn btn-success btn-filter btn-none-border" @click="changeFilter('done')">Completed</button>
       </li>
       <li class="filter-item">
-        <button class="btn btn-danger btn-filter btn-none-border">Clear completed</button>
+        <button class="btn btn-danger btn-filter btn-none-border" @click="delComplete()">Clear completed</button>
       </li>
     </ul>
   </div>
@@ -22,7 +22,7 @@
   export default ({
     name: 'Footer',
     methods: {
-      ...mapActions(['changeFilter']),
+      ...mapActions(['changeFilter', 'delComplete']),
     },
   });
 </script>

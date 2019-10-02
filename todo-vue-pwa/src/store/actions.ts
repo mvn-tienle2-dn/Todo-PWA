@@ -17,4 +17,7 @@ export default {
   delTodo: ({commit}: any, payload: any) => {
     commit('delTodo', payload);
   },
+  delComplete: ({commit}: any, payload: any) => {
+    commit('delComplete', payload);
+  },
 };

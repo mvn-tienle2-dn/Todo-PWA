@@ -35,4 +35,7 @@ export default {
     }
     state.todos.splice(idx, 1);
   },
+  delComplete: (state: State, payload: any) => {
+    state.todos = state.todos.filter((todo: any) => todo.status === 'notdone');
+  },
 };
