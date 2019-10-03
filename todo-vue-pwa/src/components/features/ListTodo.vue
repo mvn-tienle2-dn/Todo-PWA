@@ -1,7 +1,7 @@
 <template>
   <div class="page-list-todo">
     <div v-if="todoList.length">
-      <h6 class="text-centered total">{{todoList.length}} item(s) left</h6>
+      <h6 class="text-centered total">You have {{totalActive}} task(s) here.</h6>
       <transition name="fade">
         <ul v-if="todoList.length" class="list-todo">
           <transition-group name="fade">
@@ -28,7 +28,10 @@
   export default ({
     name: 'TodoList',
     computed: {
-      ...mapGetters(['todoList']),
+      ...mapGetters({
+        todoList: 'todoList',
+        totalActive: 'totalActive'
+      }),
     },
   });
 </script>
