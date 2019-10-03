@@ -1,7 +1,7 @@
 <template>
   <div class="page-list-todo">
     <div v-if="todoList.length">
-      <h6 class="text-centered total">{{todoList.length}} item(s) left</h6>
+      <h6 class="text-centered total">You have {{todoList.length}} task(s) here.</h6>
       <transition name="fade">
         <ul v-if="todoList.length" class="list-todo">
           <transition-group name="fade">
