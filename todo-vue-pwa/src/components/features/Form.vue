@@ -1,6 +1,6 @@
 <template>
   <div class="page-form">
-    <div class="container text-between">
+    <div class="text-between">
       <form>
         <div class="flex-centered">
           <input type="text" v-model="content" class="input-todo" @keypress.enter.prevent="addToList" placeholder="What needs to be done?">

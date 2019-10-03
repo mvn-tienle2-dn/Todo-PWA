@@ -1,7 +1,8 @@
 <template>
   <div class="page-list-todo">
-    <div class="container">
-      <ul class="list-todo">
+    <div v-if="todoList.length">
+      <h6 class="text-centered total">{{todoList.length}} item(s) left</h6>
+      <ul v-if="todoList.length" class="list-todo">
         <li v-for="(todo, idx) in todoList" :key="idx" class="todo-item">
           <div class="checkbox-section">
             <input class="checkbox-input" type="checkbox" :checked="todo.status === 'done' ? true : false" id="status">
@@ -10,6 +11,10 @@
           <button class="item-btn"><i class="fa fa-times"></i></button>
         </li>
       </ul>
+    </div>
+    <div class="text-centered no-task" v-else>
+      <i class="fa fa-tasks"></i>
+      <h6 class="no-task-msg">You don't have any task.</h6>
     </div>
   </div>
 </template>
