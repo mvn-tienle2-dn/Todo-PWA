@@ -1,10 +1,10 @@
 .page-footer {
   background: map-get($color, white);
   width: 100%;
+  border-top: solid 1px map-get($color, border-light);
 
   .filter-list {
-    @include pxRem(padding, 10 20);
-    border-top: solid 1px map-get($color, border-light);
+    @include pxRem(padding, 10 0);
   }
   .filter-item {
     @include pxRem(padding, 5);
