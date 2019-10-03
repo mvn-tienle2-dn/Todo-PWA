@@ -73,4 +73,8 @@
       @include pxRem(font-size, 12);
     }
   }
+  .total {
+    @include pxRem(line-height, 14);
+    color: map-get($color, text-dark-grey);
+  }
 }
