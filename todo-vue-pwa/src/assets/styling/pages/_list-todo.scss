@@ -76,5 +76,13 @@
   .total {
     @include pxRem(line-height, 14);
     color: map-get($color, text-dark-grey);
+    font-style: italic;
+  }
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity 1s;
+  }
+  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+    animation: 0s;
   }
 }
