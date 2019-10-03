@@ -2,7 +2,7 @@
   <div class="page-form">
     <div class="text-between">
       <form>
-        <div class="flex-centered">
+        <div class="flex-centered form-todo">
           <input type="text" v-model="content" class="input-todo" @keypress.enter.prevent="addToList" placeholder="What needs to be done?">
           <button type="button" class="btn btn-circle" :disabled="!content" @click="addToList"><i class="fa fa-plus"></i></button>
         </div>
