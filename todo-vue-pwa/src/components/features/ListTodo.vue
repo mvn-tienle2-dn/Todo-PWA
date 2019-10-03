@@ -7,8 +7,8 @@
           <transition-group name="fade">
             <li v-for="(todo, idx) in todoList" :key="idx" class="todo-item">
               <div class="checkbox-section">
-                <input class="checkbox-input" type="checkbox" :checked="todo.status === 'done' ? true : false" id="status">
-                <label class="checkbox-label" v-bind:class="todo.status === 'done' ? 'done' : ''" for="status">{{todo.content}}</label>
+                <input class="checkbox-input" type="checkbox" :checked="todo.status === 'done' ? true : false" :id="todo.id">
+                <label class="checkbox-label" v-bind:class="todo.status === 'done' ? 'done' : ''" :for="todo.id">{{todo.content}}</label>
               </div>
               <button class="item-btn"><i class="fa fa-times"></i></button>
             </li>
