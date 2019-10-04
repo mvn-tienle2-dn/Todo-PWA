@@ -1,11 +1,16 @@
 .page-form {
   @include pxRem(padding, 20 0);
+  .form-todo {
+    @include pxRem(padding, 20);
+    position: relative;
+  }
   .input-todo {
     @include pxRem(height, 40);
     @include pxRem(padding, 0 15);
     @include pxRem(border-radius, 20);
     @include pxRem(font-size, map-get($font-size, md));
-    width: 80%;
+    width: 100%;
+    position: absolute;
     border: 1px solid map-get($color, violet);
     background: rgba(255,255,255,.2);
     font-style: italic;
@@ -17,9 +22,10 @@
     @include pxRem(width, 40);
     @include pxRem(height, 40);
     @include pxRem(margin-left, 30);
-    border-radius: 100%;
+    position: absolute;
+    right: 0;
     color: map-get($color, violet);
-    border-color: map-get($color, violet);
+    border: none;
     background-color: transparent;
   }
 }
