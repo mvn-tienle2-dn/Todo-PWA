@@ -10,7 +10,7 @@
                 <input class="checkbox-input" type="checkbox" @click="handleUpdateStatus(todo.id)" :checked="todo.status === 'done' ? true : false" :id="todo.id">
                 <label class="checkbox-label" v-bind:class="todo.status === 'done' ? 'done' : ''" :for="todo.id">{{todo.content}}</label>
               </div>
-              <button class="item-btn"><i class="fa fa-times"></i></button>
+              <button class="item-btn" @click="handleRemoveTodo(todo.id)"><i class="fa fa-times"></i></button>
             </li>
           </transition-group>
         </ul>
@@ -33,7 +33,10 @@
       ...mapGetters(['todoList']),
     },
     methods: {
-       ...mapActions(['changeStatus']),      
+      ...mapActions(['changeStatus', 'removeTodo']),
+      handleRemoveTodo(todoId) {
+        this.removeTodo(todoId);
+      },     
       handleUpdateStatus(todoId) {
         this.changeStatus(todoId);
       }

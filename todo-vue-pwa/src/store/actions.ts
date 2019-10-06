@@ -11,6 +11,9 @@ export default {
   changeStatus: ({commit}: any, payload: any) => {
     commit('changeStatus', payload);
   },
+  removeTodo: ({commit}: any, payload: any) => {
+    commit('removeTodo', payload);
+  },
   changeFilter: ({commit}: any, payload: any) => {
     commit('applyFilter', payload);
   },

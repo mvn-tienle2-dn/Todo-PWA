@@ -24,6 +24,11 @@ export default {
       }
     }
   },
+  removeTodo: (state: { todos: Array<State['todos'][0]>; }, payload: any) => {
+    state.todos = state.todos.filter((todo) => {
+      return todo.id !== payload;
+    });
+  },
   applyFilter: (state: { filter: any; }, payload: any) => {
     state.filter = payload;
   },
