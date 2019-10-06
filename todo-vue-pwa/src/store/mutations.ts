@@ -14,6 +14,16 @@ export default {
       status: 'notdone',
     });
   },
+  changeStatus: (state: { todos: Array<State['todos'][0]>; }, payload: any) => {
+    const todo = state.todos.find((value: any) => value.id === payload);
+    if (todo) {
+      if (todo.status === 'done') {
+        return todo.status = 'notdone';
+      } else {
+        return todo.status = 'done';
+      }
+    }
+  },
   applyFilter: (state: { filter: any; }, payload: any) => {
     state.filter = payload;
   },
