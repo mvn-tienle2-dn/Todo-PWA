@@ -15,7 +15,9 @@ export default {
     });
   },
   removeTodo: (state: { todos: Array<State['todos'][0]>; }, payload: any) => {
-    state.todos.splice(payload, 1);
+    state.todos = state.todos.filter(function(todo) {
+      return todo.id !== payload;
+    });
   },
   applyFilter: (state: { filter: any; }, payload: any) => {
     state.filter = payload;
