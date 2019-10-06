@@ -14,6 +14,9 @@ export default {
       status: 'notdone',
     });
   },
+  removeTodo: (state: { todos: Array<State['todos'][0]>; }, payload: any) => {
+    state.todos.splice(payload, 1);
+  },
   applyFilter: (state: { filter: any; }, payload: any) => {
     state.filter = payload;
   },

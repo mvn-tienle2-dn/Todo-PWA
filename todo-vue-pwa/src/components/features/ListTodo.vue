@@ -10,7 +10,7 @@
                 <input class="checkbox-input" type="checkbox" :checked="todo.status === 'done' ? true : false" :id="todo.id">
                 <label class="checkbox-label" v-bind:class="todo.status === 'done' ? 'done' : ''" :for="todo.id">{{todo.content}}</label>
               </div>
-              <button class="item-btn"><i class="fa fa-times"></i></button>
+              <button class="item-btn" @click="handleRemoveTodo(todo.id)"><i class="fa fa-times"></i></button>
             </li>
           </transition-group>
         </ul>
@@ -25,10 +25,18 @@
 
 <script lang="ts">
   import { mapGetters } from 'vuex';
+  import { mapActions } from 'vuex';
+
   export default ({
     name: 'TodoList',
     computed: {
       ...mapGetters(['todoList']),
+    },
+    methods: {
+      ...mapActions(['removeTodo']),
+      handleRemoveTodo(todoId) {
+        this.removeTodo(todoId);
+      }
     },
   });
 </script>
