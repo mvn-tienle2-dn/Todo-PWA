@@ -15,11 +15,13 @@ export default {
     });
   },
   changeStatus: (state: { todos: Array<State['todos'][0]>; }, payload: any) => {
-    let todo = state.todos.find(value => value.id === payload);
-    if (todo.status === "done") {
-      return todo.status = "notdone";
-    } else {
-      return todo.status = "done";
+    const todo = state.todos.find((value: any) => value.id === payload);
+    if (todo) {
+      if (todo.status === 'done') {
+        return todo.status = 'notdone';
+      } else {
+        return todo.status = 'done';
+      }
     }
   },
   applyFilter: (state: { filter: any; }, payload: any) => {
