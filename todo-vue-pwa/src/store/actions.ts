@@ -8,6 +8,9 @@ export default {
   addTodo: ({commit}: any, payload: any) => {
     commit('addTodo', payload);
   },
+  changeStatus: ({commit}: any, payload: any) => {
+    commit('changeStatus', payload);
+  },
   removeTodo: ({commit}: any, payload: any) => {
     commit('removeTodo', payload);
   },
