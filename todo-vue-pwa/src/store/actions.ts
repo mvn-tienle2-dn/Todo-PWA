@@ -14,6 +14,9 @@ export default {
   removeTodo: ({commit}: any, payload: any) => {
     commit('removeTodo', payload);
   },
+  removeCompleted: ({commit}: any, payload: any) => {
+    commit('removeCompleted', payload);
+  },
   changeFilter: ({commit}: any, payload: any) => {
     commit('applyFilter', payload);
   },

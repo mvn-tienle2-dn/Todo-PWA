@@ -12,7 +12,7 @@
           <button class="btn btn-success btn-filter btn-none-border" :disabled="typeFilter === 'done'" @click="change('done')">Completed</button>
         </li>
         <li class="filter-item">
-          <button class="btn btn-danger btn-filter btn-none-border">Clear completed</button>
+          <button class="btn btn-danger btn-filter btn-none-border" @click="removeCompleted">Clear completed</button>
         </li>
       </ul>
     </div>
@@ -29,7 +29,7 @@
       };
     },
     methods: {
-      ...mapActions(['changeFilter']),
+      ...mapActions(['changeFilter', 'removeCompleted']),
       change(type: string) {
         this.typeFilter = type;
         this.changeFilter(type);
