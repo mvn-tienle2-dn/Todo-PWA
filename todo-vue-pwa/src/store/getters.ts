@@ -11,4 +11,8 @@ export default {
       return todo.status === filter;
     });
   },
+  countCompleted: (state: {todos: any; filter: any}) => {
+    const completed = state.todos.filter((todo: any) => todo.status === 'done');
+    return completed.length;
+  },
 };

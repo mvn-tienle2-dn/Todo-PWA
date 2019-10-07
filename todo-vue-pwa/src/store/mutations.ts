@@ -29,6 +29,11 @@ export default {
       return todo.id !== payload;
     });
   },
+  removeCompleted: (state: { todos: Array<State['todos'][0]>; }, payload: any) => {
+    state.todos = state.todos.filter((todo) => {
+      return todo.status !== 'done';
+    });
+  },
   applyFilter: (state: { filter: any; }, payload: any) => {
     state.filter = payload;
   },

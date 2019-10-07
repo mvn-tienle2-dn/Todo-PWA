@@ -36,10 +36,10 @@
       ...mapActions(['changeStatus', 'removeTodo']),
       handleRemoveTodo(todoId) {
         this.removeTodo(todoId);
-      },     
+      },
       handleUpdateStatus(todoId) {
         this.changeStatus(todoId);
-      }
+      },
     },
   });
 </script>
