@@ -25,7 +25,7 @@
     name: 'Footer',
     data() {
       return {
-        typeFilter: null
+        typeFilter: null,
       };
     },
     methods: {
@@ -33,7 +33,7 @@
       change(type: string) {
         this.typeFilter = type;
         this.changeFilter(type);
-      }
+      },
     },
     computed: {
       ...mapGetters(['countCompleted']),
