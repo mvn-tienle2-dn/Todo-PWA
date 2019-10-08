@@ -8,7 +8,7 @@ export default {
     state.counter--;
   },
   addTodo: (state: { todos: Array<State['todos'][0]>; }, payload: any) => {
-    state.todos.push({
+    state.todos.unshift({
       id: Math.random().toString(32).replace('0.', ''),
       content: payload,
       status: 'notdone',
