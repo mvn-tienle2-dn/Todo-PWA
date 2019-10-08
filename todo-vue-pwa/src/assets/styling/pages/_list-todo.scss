@@ -25,8 +25,8 @@
       transition: color .4s;
     }
     .item-btn {
-      @include pxRem(right, 0);
-      @include pxRem(font-size, 20);
+      @include pxRem(right, 12);
+      @include pxRem(font-size, 15);
       color: map-get($color, text-grey);
       transition: color .2s ease-out;
       position: absolute;
