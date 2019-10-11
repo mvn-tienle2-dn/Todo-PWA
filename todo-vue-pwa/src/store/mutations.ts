@@ -8,11 +8,13 @@ export default {
     state.counter--;
   },
   addTodo: (state: { todos: Array<State['todos'][0]>; }, payload: any) => {
-    state.todos.push({
-      id: Math.random().toString(32).replace('0.', ''),
-      content: payload,
-      status: 'notdone',
-    });
+    if (payload && payload.replace(/\s/g, '').length) {
+      state.todos.push({
+        id: Math.random().toString(32).replace('0.', ''),
+        content: payload,
+        status: 'notdone',
+      });
+    }
   },
   changeStatus: (state: { todos: Array<State['todos'][0]>; }, payload: any) => {
     const todo = state.todos.find((value: any) => value.id === payload);
