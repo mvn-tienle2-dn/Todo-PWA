@@ -7,19 +7,20 @@ $container-bg-width: 500px;
   max-width: $container-width;
 }
 .page-main {
-  min-height: calc(100vh - #{f-pxRem(180)});
+  min-height: calc(100vh - #{f-pxRem(135)});
+  background: map-get($color, white);
 }
 
 @include respond-above("medium") {
   .layout-bg-blue {
-    // background: scale-color($color: map-get($color, blue-light), $lightness: 60%);
     background: white;
     > .container {
       background: map-get($color, white);
-      min-height: calc(100vh - #{f-pxRem(180)});
-      width: $container-bg-width;
-      border-left: 1px solid map-get($color, border-light);
-      border-right: 1px solid map-get($color, border-light);
+      width: 100%;
     }
+  }
+  .page-main {
+    width: map-get($breakpoints, medium);
+    min-height: 100%;
   }
 }

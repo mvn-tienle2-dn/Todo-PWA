@@ -1,11 +1,10 @@
 .page-footer {
+  position: fixed;
+  bottom: 0;
+  z-index: 10;
   background: map-get($color, white);
   width: 100%;
   border-top: solid 1px map-get($color, border-light);
-  .container {
-    @include pxRem(padding-left, 15);
-    @include pxRem(padding-right, 15);
-  }
   .filter-list {
     @include pxRem(padding, 10 0);
   }
@@ -13,7 +12,6 @@
     @include pxRem(padding, 5);
     width: 50%;
   }
-
   .btn-filter {
     width: 100%;
     min-width: 90px;
@@ -22,19 +20,44 @@
   }
 }
 
+@include respond-below("small") {
+  .page-footer {
+    .filter-item {
+      &:first-child,
+      &:nth-child(3) {
+        @include pxRem(padding-left, 0);
+      }
+
+      &:last-child,
+      &:nth-child(2) {
+        @include pxRem(padding-right, 0);
+      }
+    }
+  }
+}
 
 @include respond-above("small") {
   .page-footer {
     .filter-item {
       width: 25%;
+      @include pxRem(padding, 5);
+
+      &:first-child {
+        @include pxRem(padding-left, 0);
+      }
+      &:last-child {
+        @include pxRem(padding-right, 0);
+      }
     }
   }
 }
 
 @include respond-above("medium") {
   .page-footer {
+    width: map-get($breakpoints, medium);
+    position: initial;
     .filter-list {
-      justify-content: center;
+      justify-content: space-between;
     }
     .filter-item {
       @include pxRem(width, 180);

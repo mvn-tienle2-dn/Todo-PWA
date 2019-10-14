@@ -1,5 +1,5 @@
 .page-list-todo {
-  @include pxRem(padding-bottom, 20);
+  @include pxRem(padding-bottom, 122);
   .list-todo {
     .todo-item {
       @include pxRem(padding, 20 0);
@@ -94,5 +94,23 @@
   .fade-leave-active {
     transform: scale(0);
     opacity: 0;
+  }
+}
+
+@include respond-above("x-small") {
+  .page-list-todo {
+    @include pxRem(padding-bottom, 110);
+  }
+}
+
+@include respond-above("small") {
+  .page-list-todo {
+    @include pxRem(padding-bottom, 65);
+  }
+}
+
+@include respond-above("medium") {
+  .page-list-todo {
+    @include pxRem(padding-bottom, 0);
   }
 }

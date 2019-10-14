@@ -33,6 +33,8 @@
 }
 @include respond-above("medium") {
   .page-header {
+    position: initial;
+    width: map-get($breakpoints, medium);
     @include pxRem(padding, 0 100);
   }
 }
