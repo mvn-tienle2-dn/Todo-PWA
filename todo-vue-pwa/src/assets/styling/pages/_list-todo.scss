@@ -108,3 +108,9 @@
     @include pxRem(padding-bottom, 65);
   }
 }
+
+@include respond-above("medium") {
+  .page-list-todo {
+    @include pxRem(padding-bottom, 0);
+  }
+}

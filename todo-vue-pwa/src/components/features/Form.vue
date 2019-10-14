@@ -23,7 +23,7 @@
     },
     methods: {
       ...mapActions(['addTodo']),
-      addToList() {
+      addToList(): void {
         this.addTodo(this.content);
         this.content = null;
       },

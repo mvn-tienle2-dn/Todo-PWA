@@ -8,6 +8,7 @@ $container-bg-width: 500px;
 }
 .page-main {
   min-height: calc(100vh - #{f-pxRem(135)});
+  background: map-get($color, white);
 }
 
 @include respond-above("medium") {
@@ -15,8 +16,11 @@ $container-bg-width: 500px;
     background: white;
     > .container {
       background: map-get($color, white);
-      min-height: calc(100vh - #{f-pxRem(135)});
       width: 100%;
     }
+  }
+  .page-main {
+    width: map-get($breakpoints, medium);
+    min-height: 100%;
   }
 }
