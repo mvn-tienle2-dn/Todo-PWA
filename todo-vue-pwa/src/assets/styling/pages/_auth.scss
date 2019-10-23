@@ -2,7 +2,7 @@
   .site-wrapper {
     margin: 1em auto 1em;
     max-width: 95%;
-    @media screen and (min-height: 600px) {
+    @include respond-above("medium") {
       @include pxRem(width, 500);
       position: absolute;
       left: 50%;
