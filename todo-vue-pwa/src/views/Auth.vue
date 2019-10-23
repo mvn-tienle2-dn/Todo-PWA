@@ -3,15 +3,15 @@
     <div class="site-wrapper">
       <div class="form-wrapper">
         <div class="box">
-          <input type="radio" id="signInTitle" class="hiddenInput" name="formTitle" checked>
-          <label class="tab-item" for="signInTitle">Sign In</label>
-          <input type="radio" id="signUpTitle" class="hiddenInput" name="formTitle">
-          <label class="tab-item active" for="signUpTitle">Sign Up</label>
+          <input type="radio" id="signin-title" class="hidden-input" name="formTitle" checked>
+          <label class="tab-item" for="signin-title">Sign In</label>
+          <input type="radio" id="signup-title" class="hidden-input" name="formTitle">
+          <label class="tab-item active" for="signup-title">Sign Up</label>
           <div class="clearfix"></div>
-          <div class="singIn">
+          <div class="sign-in">
             Sign In
           </div>
-          <div class="singUp">
+          <div class="sign-up">
             Sign Up
           </div>
         </div>
