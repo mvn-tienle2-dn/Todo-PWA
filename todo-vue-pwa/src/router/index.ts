@@ -17,12 +17,7 @@ const router = new Router({
     {
       path: '/todos',
       name: 'todos',
-      component: () => import(/* webpackChunkName: "auth" */ '../components/Todo.vue'),
-    },
-    {
-      path: '/home',
-      name: 'home',
-      component: () => import(/* webpackChunkName: "auth" */ '../views/Home.vue'),
+      component: () => import(/* webpackChunkName: "auth" */ '../views/Todo.vue'),
     },
   ],
 });

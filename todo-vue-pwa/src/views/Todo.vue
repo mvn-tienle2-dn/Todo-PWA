@@ -12,10 +12,10 @@
 </template>
 
 <script lang="ts">
-  import Header from './shared/Header.vue';
-  import Footer from './shared/Footer.vue';
-  import TodoForm from './features/Form.vue';
-  import TodoList from './features/ListTodo.vue';
+  import Header from '../components/shared/Header.vue';
+  import Footer from '../components/shared/Footer.vue';
+  import TodoForm from '../components/features/Form.vue';
+  import TodoList from '../components/features/ListTodo.vue';
 
   export default ({
     name: 'TodoApp',
