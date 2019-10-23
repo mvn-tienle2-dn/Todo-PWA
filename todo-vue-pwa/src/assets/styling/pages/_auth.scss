@@ -111,7 +111,7 @@
 
   }
 
-  .sign-on, .sign-up {
+  .sign-in, .sign-up {
     position: absolute;
     width: 100%;
     top: 120px;
@@ -134,11 +134,10 @@
 
   #signin-title:checked {
     & + .tab-item {
-      color: #333;
-      border-color: #333;
-      background-color: #f7f7f7;
+      color: map-get($color, primary);
+      border-color: map-get($color, primary);
     }
-    & ~ .sign-on {
+    & ~ .sign-in {
       opacity: 1;
       z-index: 99;
       -webkit-transition-delay: .25s;
@@ -159,9 +158,8 @@
 
   #signup-title:checked {
     & + .tab-item {
-      color: #333;
-      border-color: #333;
-      background-color: #f7f7f7;
+      color: map-get($color, primary);
+      border-color: map-get($color, primary);
     }
 
     & ~ .sign-up {
@@ -174,7 +172,7 @@
       transition-delay: .25s;
     }
 
-    & ~ .sign-on {
+    & ~ .sign-in {
       opacity: 0;
       -webkit-transition-delay: 0s;
       -moz-transition-delay: 0s;
@@ -198,10 +196,61 @@
       opacity: 1;
     }
   }
-  .email {
-    @include pxRem(margin-top, 120);
-  }
   .btn-primary {
     width: 90%;
+  }
+  .action {
+    .btn {
+      @include pxRem(margin-top, 32);
+      width: 50px;
+      height: 50px;
+      @include pxRem(width, 56);
+      @include pxRem(height, 56);
+      @include pxRem(margin-right, 30);
+      border-radius: 50%;
+      overflow: hidden;
+      position: relative;
+      text-decoration: none;
+      color: map-get($color, primary);
+      border: 1px solid map-get($color, primary);
+      transition: all 0.2s linear 0s;
+      padding: 0;
+      i {
+        @include pxRem(font-size, 16);
+        @include pxRem(margin-top, 20);
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+      &:before {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+      }
+      &:after {
+        content: "";
+        display: block;
+        width: 90%;
+        height: 90%;
+        top: -110%;
+        left: 0;
+        right: 0;
+        margin: auto;
+        position: absolute;
+        // background-color: map-get($color, primary);
+        border-radius: 50%;
+      }
+      &:hover {
+        i {
+          color: map-get($color, white);
+          z-index: 99;
+        }
+        &:after {
+          transition: all 0.2s linear 0s;
+          top: 5%;
+        }
+      }
+    }
   }
 }
