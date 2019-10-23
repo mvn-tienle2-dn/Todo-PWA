@@ -3,10 +3,10 @@
     margin: 1em auto 1em;
     max-width: 95%;
     @media screen and (min-height: 600px) {
+      @include pxRem(width, 500);
       position: absolute;
       left: 50%;
       top: 50%;
-      width: 500px;
       -webkit-transform: translate(-50%, -50%);
       -moz-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
@@ -16,33 +16,33 @@
   }
 
   .box {
-    @include pxRem(height, 660);
+    @include pxRem(height, 565);
     position: relative;
     overflow: hidden;
     text-align: center;
     margin: 0;
     font-family: 'Vazir', sans-serif;
-    background-color: #fff;
+    background-color: map-get($color, white);
     text-decoration: none;
     border: 1px solid transparent;
   }
 
   .tab-item {
+    @include pxRem(padding, 16);
+    @include pxRem(font-size, 20);
     float: right;
     width: 50%;
     margin: 0;
-    padding: 1em;
-    font-size: 1.3em;
-    color: #ccc;
+    color: map-get($color, border-light);
     cursor: pointer;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid map-get($color, border-light);
     text-decoration: none;
   }
 
   .sign-in, .sign-up {
+    @include pxRem(top, 120);
     position: absolute;
     width: 100%;
-    top: 120px;
     left: 0;
     -webkit-transition: opacity .5s;
     -moz-transition: opacity .5s;
