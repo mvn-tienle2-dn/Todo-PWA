@@ -2,11 +2,11 @@
   .site-wrapper {
     margin: 1em auto 1em;
     max-width: 95%;
-    @include respond-above("medium") {
-      @include pxRem(width, 500);
+    @media screen and (min-height: 600px) {
       position: absolute;
       left: 50%;
       top: 50%;
+      width: 500px;
       -webkit-transform: translate(-50%, -50%);
       -moz-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
@@ -16,33 +16,105 @@
   }
 
   .box {
-    @include pxRem(height, 565);
     position: relative;
+    height: 490px;
     overflow: hidden;
     text-align: center;
+    padding: 1.5em;
     margin: 0;
     font-family: 'Vazir', sans-serif;
-    background-color: map-get($color, white);
+    background-color: #fff;
     text-decoration: none;
     border: 1px solid transparent;
+    border-radius: 20px;
+    -webkit-box-shadow: 0 0 21px 0 rgba(209, 210, 209, 0.4);
+    -moz-box-shadow: 0 0 21px 0 rgba(209, 210, 209, 0.4);
+    box-shadow: 0 0 21px 0 rgba(209, 210, 209, 0.4);
+  }
+
+  .input {
+    display: block;
+    width: 90%;
+    line-height: normal;
+    margin: 0 auto 2em;
+    background-color: #eee;
+    @include pxRem(height, 40);
+    @include pxRem(padding, 0 15);
+    @include pxRem(border-radius, 20);
+    @include pxRem(font-size, map-get($font-size, md));
+    border: 1px solid map-get($color, violet);
+    background: rgba(255,255,255,.2);
+    font-style: italic;
+
+    &:hover, &:focus {
+      outline: none;
+    }
+
+    &.has-error {
+      border-color: #B71C1C;
+    }
+  }
+
+  .submit {
+    display: block;
+    width: 170px;
+    padding: 1em 0;
+    margin: 0 auto 2em;
+    font-family: inherit;
+    border: 1px solid #ccc;
+    border-radius: 100px;
+    color: #fff;
+    outline: none;
+    background: #5597d0;
+    background: -webkit-gradient(linear, left top, right top, from(#5597d0), to(#70d193));
+    background: -webkit-linear-gradient(left, #5597d0 0%, #70d193 100%);
+    background: -o-linear-gradient(left, #5597d0 0%, #70d193 100%);
+    background: linear-gradient(to right, #5597d0 0%, #70d193 100%);
+
+    &:hover, &:focus {
+      cursor: pointer;
+      background: #70d193;
+      background: -webkit-gradient(linear, left top, right top, from(#3784c8), to(#56c880));
+      background: -webkit-linear-gradient(left, #3784c8 0%, #56c880 100%);
+      background: -o-linear-gradient(left, #3784c8 0%, #56c880 100%);
+      background: linear-gradient(to right, #3784c8 0%, #56c880 100%);
+    }
+  }
+
+  .link {
+    display: inline-block;
+    font-size: .9em;
+    color: #777;
+    text-decoration: none;
+    border-bottom: 1px solid #777;
+    padding: 0.1em;
+    &:hover, &:focus {
+      color: #555;
+      text-decoration: none;
+    }
   }
 
   .tab-item {
-    @include pxRem(padding, 16);
-    @include pxRem(font-size, 20);
     float: right;
     width: 50%;
     margin: 0;
-    color: map-get($color, border-light);
+    padding: 1em;
+    font-size: 1.3em;
+    color: #ccc;
     cursor: pointer;
-    border-bottom: 1px solid map-get($color, border-light);
+    border-bottom: 1px solid #ccc;
     text-decoration: none;
+
+    &:hover, &:focus {
+      background-color: #f7f7f7;
+    }
+
   }
 
-  .sign-in, .sign-up {
-    @include pxRem(top, 120);
+  .sign-on, .sign-up {
     position: absolute;
     width: 100%;
+    top: 120px;
     left: 0;
     -webkit-transition: opacity .5s;
     -moz-transition: opacity .5s;
@@ -62,10 +134,11 @@
 
   #signin-title:checked {
     & + .tab-item {
-      color: map-get($color, primary);
-      border-color: map-get($color, primary);
+      color: #333;
+      border-color: #333;
+      background-color: #f7f7f7;
     }
-    & ~ .sign-in {
+    & ~ .sign-on {
       opacity: 1;
       z-index: 99;
       -webkit-transition-delay: .25s;
@@ -86,8 +159,9 @@
 
   #signup-title:checked {
     & + .tab-item {
-      color: map-get($color, primary);
-      border-color: map-get($color, primary);
+      color: #333;
+      border-color: #333;
+      background-color: #f7f7f7;
     }
 
     & ~ .sign-up {
@@ -100,7 +174,7 @@
       transition-delay: .25s;
     }
 
-    & ~ .sign-in {
+    & ~ .sign-on {
       opacity: 0;
       -webkit-transition-delay: 0s;
       -moz-transition-delay: 0s;
@@ -108,5 +182,26 @@
       -o-transition-delay: 0s;
       transition-delay: 0s;
     }
+  }
+
+  .err-msg {
+    color: #B71C1C;
+    margin: 0 0 15px;
+    opacity: 0;
+    -webkit-transition: opacity .5s;
+    -moz-transition: opacity .5s;
+    -ms-transition: opacity .5s;
+    -o-transition: opacity .5s;
+    transition: opacity .5s;
+
+    &.show {
+      opacity: 1;
+    }
+  }
+  .email {
+    @include pxRem(margin-top, 120);
+  }
+  .btn-primary {
+    width: 90%;
   }
 }

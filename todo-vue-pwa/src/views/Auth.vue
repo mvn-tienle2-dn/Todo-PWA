@@ -9,7 +9,9 @@
           <label class="tab-item active" for="signup-title">Sign Up</label>
           <div class="clearfix"></div>
           <div class="sign-in">
-            Sign In
+            <input class="input email" id="emailIn" type="email" placeholder="Email">
+            <input class="input password" id="passwordIn" type="password" placeholder="Password">
+            <button class="btn btn-primary">Submit</button>
           </div>
           <div class="sign-up">
             Sign Up
