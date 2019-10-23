@@ -20,7 +20,12 @@
             </form>
           </div>
           <div class="sign-up">
-            Sign Up
+            <form>
+              <input class="input email" id="emailIn" type="email" placeholder="Email">
+              <input class="input password" id="passwordIn" type="password" placeholder="Password">
+              <input class="input password" id="passwordIn" type="password" placeholder="Confirm password">
+              <button type="button" class="btn btn-primary">Submit</button>
+            </form>
           </div>
         </div>
       </div>
