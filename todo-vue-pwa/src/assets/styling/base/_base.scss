@@ -6,7 +6,6 @@ body {
   @include font-smoothing(antialiased);
   @include pxRem(font-size, map-get($font-size, md));
   @include pxRem(padding-top, 70);
-  background: map-get($color, border-light);
   color: map-get($color, text);
   font-family: $font-family-default;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -56,9 +55,10 @@ img {
 
 @include respond-above("medium") {
   body {
+    @include pxRem(padding-top, 150);
     display: flex;
     justify-content: center;
     min-height: 100vh;
-    @include pxRem(padding-top, 150);
+    background: map-get($color, border-light);
   }
 }

@@ -19,6 +19,11 @@ const router = new Router({
       name: 'todos',
       component: () => import(/* webpackChunkName: "auth" */ '../views/Todo.vue'),
     },
+    {
+      path: '/auth',
+      name: 'auth',
+      component: () => import(/* webpackChunkName: "auth" */ '../views/Auth.vue'),
+    },
   ],
 });
 
