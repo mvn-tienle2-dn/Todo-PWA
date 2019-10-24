@@ -9,23 +9,10 @@
           <label class="tab-item active" for="signup-title">Sign Up</label>
           <div class="clearfix"></div>
           <div class="sign-in">
-            <form>
-              <input class="input email" id="emailIn" type="email" placeholder="Email">
-              <input class="input password" id="passwordIn" type="password" placeholder="Password">
-              <button type="button" class="btn btn-primary">Submit</button>
-              <div class="action">
-                <button class="btn btn-fb"><i class="fab fa-facebook-f"></i></button>
-                <button class="btn btn-google"><i class="fab fa-google"></i></button>
-              </div>
-            </form>
+            <SignIn/>
           </div>
           <div class="sign-up">
-            <form>
-              <input class="input email" id="emailIn" type="email" placeholder="Email">
-              <input class="input password" id="passwordIn" type="password" placeholder="Password">
-              <input class="input password" id="passwordIn" type="password" placeholder="Confirm password">
-              <button type="button" class="btn btn-primary">Submit</button>
-            </form>
+            <SignUp/>
           </div>
         </div>
       </div>
@@ -34,7 +21,13 @@
 </template>
 
 <script lang="ts">
+  import SignIn from '../components/features/SignIn.vue';
+  import SignUp from '../components/features/SignUp.vue';
   export default ({
     name: 'Auth',
+    components: {
+      SignIn,
+      SignUp,
+    },
   });
 </script>
