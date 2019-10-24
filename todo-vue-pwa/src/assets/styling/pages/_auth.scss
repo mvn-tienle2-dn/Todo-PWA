@@ -186,10 +186,10 @@
       box-shadow: 0 0 21px 0 rgba(209, 210, 209, 0.4);
     }
     .site-wrapper {
+      @include pxRem(width, 500);
       position: absolute;
       left: 50%;
       top: 50%;
-      width: 500px;
       -webkit-transform: translate(-50%, -50%);
       -moz-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
