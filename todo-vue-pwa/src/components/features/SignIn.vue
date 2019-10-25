@@ -1,17 +1,48 @@
 <template>
   <form>
-    <input class="input email" id="emailIn" type="email" placeholder="Email">
-    <input class="input password" id="passwordIn" type="password" placeholder="Password">
-    <button type="button" class="btn btn-primary">Submit</button>
+    <input class="input email" id="emailIn" type="email" placeholder="Email" v-model="email">
+    <input class="input password" id="passwordIn" type="password" placeholder="Password" v-model="password">
+    <button type="button" class="btn btn-primary" @click="login()">Submit</button>
     <div class="action">
-      <button class="btn btn-fb"><i class="fab fa-facebook-f"></i></button>
-      <button class="btn btn-google"><i class="fab fa-google"></i></button>
+      <button type="button" class="btn btn-fb" @click="loginWithFB()"><i class="fab fa-facebook-f"></i></button>
+      <button type="button" class="btn btn-google" @click="loginWithGoogle()"><i class="fab fa-google"></i></button>
     </div>
   </form>
 </template>
 
 <script lang="ts">
+  import firebase from 'firebase';
+
   export default ({
     name: 'Login',
+    data() {
+      return {
+        email: null,
+        password: null,
+      };
+    },
+    methods: {
+      login() {
+        firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
+          (user: any) => {
+            console.log('Login success');
+            this.$router.replace('todos');
+          },
+          (err: any) => {
+            console.log('Error', err);
+          }
+        );
+      },
+      loginWithGoogle() {
+        var provider = new firebase.auth.GoogleAuthProvider();
+        firebase.auth().signInWithPopup(provider).then(
+          (result) => {
+           this.$router.replace('todos');
+          }, (err: any) => {
+            console.log('Error');
+          }
+        );
+      },
+    },
   });
 </script>
