@@ -12,6 +12,7 @@
 
 <script lang="ts">
   import firebase from 'firebase';
+  import { mapActions } from 'vuex';
 
   export default ({
     name: 'Login',
@@ -22,15 +23,13 @@
       };
     },
     methods: {
+      ...mapActions(['signin']),
       login() {
-        firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
-          (user: any) => {
-            this.$router.replace('todos');
-          },
-          (err: any) => {
-            // Show error message
-          }
-        );
+        const payload = {
+          email: this.email,
+          password: this.password,
+        };
+        this.signin(payload);
       },
       loginWithGoogle() {
         var provider = new firebase.auth.GoogleAuthProvider();

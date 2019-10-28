@@ -23,4 +23,7 @@ export default {
   signup: ({commit}: any, payload: any) => {
     commit('signup', payload);
   },
+  signin: ({commit}: any, payload: any) => {
+    commit('signin', payload);
+  },
 };

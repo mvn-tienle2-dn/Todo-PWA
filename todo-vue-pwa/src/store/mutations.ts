@@ -56,4 +56,14 @@ export default {
       },
     );
   },
+  signin: (state: {user: any}, payload: any) => {
+    firebase.auth().signInWithEmailAndPassword(payload.email, payload.password).then(
+      (user: any) => {
+        router.push('/todos');
+      },
+      (err: any) => {
+        // Show error message
+      },
+    );
+  },
 };
