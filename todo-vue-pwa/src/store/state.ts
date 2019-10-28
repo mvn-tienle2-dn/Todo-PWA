@@ -2,7 +2,7 @@ export interface State {
   counter: number;
   todos: Array<{ id: string; content: string; status: State['filter'] }>;
   filter: null | 'done' | 'notdone';
-  user: {email: string, password: string};
+  user: {email: string, uid: string};
 }
 
 export default {
@@ -20,4 +20,5 @@ export default {
     },
   ],
   filter: null,
+  user: {},
 } as State;
