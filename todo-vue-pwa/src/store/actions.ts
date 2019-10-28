@@ -26,4 +26,7 @@ export default {
   signin: ({commit}: any, payload: any) => {
     commit('signin', payload);
   },
+  signinWithGoogle: ({commit}: any, payload: any) => {
+    commit('signinWithGoogle', payload);
+  },
 };

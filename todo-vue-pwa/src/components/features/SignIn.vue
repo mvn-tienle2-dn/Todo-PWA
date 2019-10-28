@@ -23,7 +23,7 @@
       };
     },
     methods: {
-      ...mapActions(['signin']),
+      ...mapActions(['signin', 'signinWithGoogle']),
       login() {
         const payload = {
           email: this.email,
@@ -32,14 +32,7 @@
         this.signin(payload);
       },
       loginWithGoogle() {
-        var provider = new firebase.auth.GoogleAuthProvider();
-        firebase.auth().signInWithPopup(provider).then(
-          (result) => {
-           this.$router.replace('todos');
-          }, (err: any) => {
-            // Show error message
-          }
-        );
+        this.signinWithGoogle();
       },
     },
   });
