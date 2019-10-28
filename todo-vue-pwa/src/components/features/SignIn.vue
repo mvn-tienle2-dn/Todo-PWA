@@ -5,7 +5,7 @@
     <button type="button" class="btn btn-primary" @click="login()">Submit</button>
     <div class="action">
       <button type="button" class="btn btn-fb" @click="signinWithFB()"><i class="fab fa-facebook-f"></i></button>
-      <button type="button" class="btn btn-google" @click="loginWithGoogle()"><i class="fab fa-google"></i></button>
+      <button type="button" class="btn btn-google" @click="signinWithGoogle()"><i class="fab fa-google"></i></button>
     </div>
   </form>
 </template>
@@ -30,9 +30,6 @@
           password: this.password,
         };
         this.signin(payload);
-      },
-      loginWithGoogle() {
-        this.signinWithGoogle();
       },
     },
   });
