@@ -20,7 +20,7 @@ export default {
   changeFilter: ({commit}: any, payload: any) => {
     commit('applyFilter', payload);
   },
-  signupWithGoogle: ({commit}: any, payload: any) => {
-    commit('signupWithGoogle', payload);
+  signup: ({commit}: any, payload: any) => {
+    commit('signup', payload);
   },
 };

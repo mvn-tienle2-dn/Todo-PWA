@@ -41,7 +41,7 @@ export default {
   applyFilter: (state: { filter: any; }, payload: any) => {
     state.filter = payload;
   },
-  signupWithGoogle: (state: { user: any }, payload: any) => {
+  signup: (state: { user: any }, payload: any) => {
     firebase.auth().createUserWithEmailAndPassword(payload.email, payload.password).then(
       (user: any) => {
         const db = firebase.firestore();

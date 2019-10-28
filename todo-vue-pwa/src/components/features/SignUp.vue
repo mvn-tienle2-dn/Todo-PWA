@@ -21,13 +21,13 @@
       };
     },
     methods: {
-      ...mapActions(['signupWithGoogle']),
+      ...mapActions(['signup']),
       signUp() {
         const payload = {
           email: this.email,
           password: this.password
         };
-        this.signupWithGoogle(payload);
+        this.signup(payload);
       }
     }
   });
