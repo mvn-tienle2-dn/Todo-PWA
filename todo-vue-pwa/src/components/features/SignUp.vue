@@ -9,6 +9,8 @@
 
 <script lang="ts">
   import firebase from 'firebase';
+  import { mapActions } from 'vuex';
+
   export default ({
     name: 'Login',
     data() {
@@ -19,22 +21,13 @@
       };
     },
     methods: {
+      ...mapActions(['signupWithGoogle']),
       signUp() {
-        firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
-          (user: any) => {
-            console.log(user, 'Success');
-            var db = firebase.firestore();
-            db.collection('users').add({
-              email: user.user.email,
-              uid: user.user.uid,
-            });
-            this.$router.replace('todos');
-          },
-          (err: any) => {
-            console.log(err, 'Error');
-
-          }
-        )
+        const payload = {
+          email: this.email,
+          password: this.password
+        };
+        this.signupWithGoogle(payload);
       }
     }
   });

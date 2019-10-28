@@ -1,4 +1,6 @@
+import firebase from 'firebase';
 import { State } from './state';
+import router from '../router/index';
 
 export default {
   mutateIncrease: (state: { counter: number; }, payload: any) => {
@@ -38,5 +40,20 @@ export default {
   },
   applyFilter: (state: { filter: any; }, payload: any) => {
     state.filter = payload;
+  },
+  signupWithGoogle: (state: { user: any }, payload: any) => {
+    firebase.auth().createUserWithEmailAndPassword(payload.email, payload.password).then(
+      (user: any) => {
+        const db = firebase.firestore();
+        db.collection('users').add({
+          email: user.user.email,
+          uid: user.user.uid,
+        });
+        router.push('/todos');
+      },
+      (err: any) => {
+        // Show error message
+      },
+    );
   },
 };

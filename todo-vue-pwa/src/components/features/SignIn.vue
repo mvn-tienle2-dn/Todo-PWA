@@ -25,11 +25,10 @@
       login() {
         firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
           (user: any) => {
-            console.log('Login success');
             this.$router.replace('todos');
           },
           (err: any) => {
-            console.log('Error', err);
+            // Show error message
           }
         );
       },
@@ -39,7 +38,7 @@
           (result) => {
            this.$router.replace('todos');
           }, (err: any) => {
-            console.log('Error');
+            // Show error message
           }
         );
       },
