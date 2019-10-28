@@ -4,7 +4,7 @@
     <input class="input password" id="passwordIn" type="password" placeholder="Password" v-model="password">
     <button type="button" class="btn btn-primary" @click="login()">Submit</button>
     <div class="action">
-      <button type="button" class="btn btn-fb" @click="loginWithFB()"><i class="fab fa-facebook-f"></i></button>
+      <button type="button" class="btn btn-fb" @click="signinWithFB()"><i class="fab fa-facebook-f"></i></button>
       <button type="button" class="btn btn-google" @click="loginWithGoogle()"><i class="fab fa-google"></i></button>
     </div>
   </form>
@@ -23,7 +23,7 @@
       };
     },
     methods: {
-      ...mapActions(['signin', 'signinWithGoogle']),
+      ...mapActions(['signin', 'signinWithGoogle', 'signinWithFB']),
       login() {
         const payload = {
           email: this.email,

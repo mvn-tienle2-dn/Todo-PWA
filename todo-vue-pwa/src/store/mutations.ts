@@ -66,8 +66,8 @@ export default {
       },
     );
   },
-  signinWithGoogle: (state: {user: any}) => {
-    const provider = new firebase.auth.GoogleAuthProvider();
+  signinWithFB: (state: {user: any}) => {
+    const provider = new firebase.auth.FacebookAuthProvider();
     firebase.auth().signInWithPopup(provider).then(
       (result) => {
         router.push('todos');

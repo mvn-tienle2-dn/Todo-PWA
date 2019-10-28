@@ -29,4 +29,7 @@ export default {
   signinWithGoogle: ({commit}: any, payload: any) => {
     commit('signinWithGoogle', payload);
   },
+  signinWithFB: ({commit}: any, payload: any) => {
+    commit('signinWithFB', payload);
+  },
 };
