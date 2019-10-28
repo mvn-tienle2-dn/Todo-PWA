@@ -46,6 +46,13 @@ export default {
     }
   },
   removeTodo: (state: { todos: Array<State['todos'][0]>; }, payload: any) => {
+    const uid = localStorage.getItem('uid') || '';
+    const doc = uid + payload;
+    const db = firebase.firestore();
+
+    db.collection('todos').doc(doc).delete().then(() => {
+      // Shoe message delete
+    });
     state.todos = state.todos.filter((todo) => {
       return todo.id !== payload;
     });
