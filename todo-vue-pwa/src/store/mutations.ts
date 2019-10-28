@@ -58,6 +58,17 @@ export default {
     });
   },
   removeCompleted: (state: { todos: Array<State['todos'][0]>; }, payload: any) => {
+    const uid = localStorage.getItem('uid') || '';
+    let doc: string;
+    const db = firebase.firestore();
+    state.todos.forEach((item: any) => {
+      if (item.status === 'done') {
+        doc = uid + item.id;
+        db.collection('todos').doc(doc).delete().then(() => {
+          // Show message
+        });
+      }
+    });
     state.todos = state.todos.filter((todo) => {
       return todo.status !== 'done';
     });
