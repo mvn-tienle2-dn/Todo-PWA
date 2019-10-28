@@ -129,6 +129,9 @@ export default {
     const provider = new firebase.auth.FacebookAuthProvider();
     firebase.auth().signInWithPopup(provider).then(
       (result: any) => {
+        state.user.email = result.user.email || '';
+        state.user.uid = result.user.uid || '';
+        localStorage.setItem('uid', result.user.uid);
         router.push('todos');
       }, (err: any) => {
         // Show error message
