@@ -1,4 +1,6 @@
+import firebase from 'firebase';
 import { State } from './state';
+import router from '../router/index';
 
 export default {
   mutateIncrease: (state: { counter: number; }, payload: any) => {
@@ -38,5 +40,61 @@ export default {
   },
   applyFilter: (state: { filter: any; }, payload: any) => {
     state.filter = payload;
+  },
+  signup: (state: { user: any }, payload: any) => {
+    firebase.auth().createUserWithEmailAndPassword(payload.email, payload.password).then(
+      (user: any) => {
+        state.user.email = user.user.email || '';
+        state.user.uid = user.user.uid || '';
+        const db = firebase.firestore();
+        db.collection('users').add({
+          email: user.user.email,
+          uid: user.user.uid,
+        });
+        router.push('/todos');
+      },
+      (err: any) => {
+        // Show error message
+      },
+    );
+  },
+  signin: (state: {user: any}, payload: any) => {
+    firebase.auth().signInWithEmailAndPassword(payload.email, payload.password).then(
+      (user: any) => {
+        state.user.email = user.user.email || '';
+        state.user.uid = user.user.uid || '';
+        router.push('/todos');
+      },
+      (err: any) => {
+        // Show error message
+      },
+    );
+  },
+  signinWithGoogle: (state: {user: any}) => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithPopup(provider).then(
+      (result: any) => {
+        state.user.email = result.user.email || '';
+        state.user.uid = result.user.uid || '';
+        const db = firebase.firestore();
+        db.collection('users').add({
+          email: result.user.email,
+          uid: result.user.uid,
+        });
+        router.push('todos');
+      }, (err: any) => {
+        // Show error message
+      },
+    );
+  },
+  signinWithFB: (state: {user: any}) => {
+    const provider = new firebase.auth.FacebookAuthProvider();
+    firebase.auth().signInWithPopup(provider).then(
+      (result: any) => {
+        router.push('todos');
+      }, (err: any) => {
+        // Show error message
+      },
+    );
   },
 };

@@ -1,0 +1,200 @@
+.page-auth {
+  .site-wrapper {
+    @include pxRem(margin, 16 auto 16);
+    max-width: 95%;
+  }
+
+  .box {
+    @include pxRem(padding, 24);
+    @include pxRem(height, 490);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    margin: 0;
+    background-color: map-get($color, white);
+    text-decoration: none;
+  }
+
+  .input {
+    @include pxRem(height, 40);
+    @include pxRem(padding, 0 15);
+    @include pxRem(margin, 0 auto 32);
+    @include pxRem(border-radius, 20);
+    @include pxRem(font-size, map-get($font-size, md));
+    display: block;
+    width: 90%;
+    line-height: normal;
+    background-color: map-get($color, white);
+    border: 1px solid map-get($color, violet);
+    background: rgba(255,255,255,.2);
+    font-style: italic;
+
+    &:hover, &:focus {
+      outline: none;
+    }
+  }
+
+  .tab-item {
+    @include pxRem(padding, 16);
+    @include pxRem(font-size, 20);
+    float: right;
+    width: 50%;
+    margin: 0;
+    color: map-get($color, border-light);
+    cursor: pointer;
+    border-bottom: 1px solid map-get($color, border-light);
+    text-decoration: none;
+  }
+
+  .sign-in, .sign-up {
+    @include pxRem(top, 120);
+    position: absolute;
+    width: 100%;
+    left: 0;
+    -webkit-transition: opacity .5s;
+    -moz-transition: opacity .5s;
+    -ms-transition: opacity .5s;
+    -o-transition: opacity .5s;
+    transition: opacity .5s;
+  }
+
+  .sign-up {
+    opacity: 0;
+  }
+
+  .hidden-input {
+    position: absolute;
+    visibility: hidden;
+  }
+
+  #signin-title:checked {
+    & + .tab-item {
+      color: map-get($color, primary);
+      border-color: map-get($color, primary);
+    }
+    & ~ .sign-in {
+      opacity: 1;
+      z-index: 99;
+      -webkit-transition-delay: .25s;
+      -moz-transition-delay: .25s;
+      -ms-transition-delay: .25s;
+      -o-transition-delay: .25s;
+      transition-delay: .25s;
+    }
+    & ~ .sign-up {
+      opacity: 0;
+      -webkit-transition-delay: 0s;
+      -moz-transition-delay: 0s;
+      -ms-transition-delay: 0s;
+      -o-transition-delay: 0s;
+      transition-delay: 0s;
+    }
+  }
+
+  #signup-title:checked {
+    & + .tab-item {
+      color: map-get($color, primary);
+      border-color: map-get($color, primary);
+    }
+
+    & ~ .sign-up {
+      opacity: 1;
+      z-index: 99;
+      -webkit-transition-delay: .25s;
+      -moz-transition-delay: .25s;
+      -ms-transition-delay: .25s;
+      -o-transition-delay: .25s;
+      transition-delay: .25s;
+    }
+
+    & ~ .sign-in {
+      opacity: 0;
+      -webkit-transition-delay: 0s;
+      -moz-transition-delay: 0s;
+      -ms-transition-delay: 0s;
+      -o-transition-delay: 0s;
+      transition-delay: 0s;
+    }
+  }
+
+  .btn-primary {
+    width: 90%;
+    color: map-get($color, btn-text);
+    border-color: map-get($color, primary);
+  }
+  .action {
+    .btn {
+      @include pxRem(margin-top, 32);
+      @include pxRem(margin-right, 30);
+      @include pxRem(width, 56);
+      @include pxRem(height, 56);
+      border-radius: 50%;
+      overflow: hidden;
+      position: relative;
+      text-decoration: none;
+      color: map-get($color, primary);
+      border: 1px solid map-get($color, primary);
+      transition: all 0.2s linear 0s;
+      padding: 0;
+      i {
+        @include pxRem(font-size, 16);
+        @include pxRem(margin-top, 40);
+      }
+      .fa-google, .fa-facebook-f {
+        @include pxRem(margin-top, 20);
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+      &:before {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+      }
+      &:after {
+        content: "";
+        display: block;
+        width: 90%;
+        height: 90%;
+        top: -110%;
+        left: 0;
+        right: 0;
+        margin: auto;
+        position: absolute;
+        // background-color: map-get($color, primary);
+        border-radius: 50%;
+      }
+      &:hover {
+        i {
+          color: map-get($color, white);
+          z-index: 99;
+        }
+        &:after {
+          transition: all 0.2s linear 0s;
+          top: 5%;
+        }
+      }
+    }
+  }
+  @include respond-above("medium") {
+    .box {
+      @include pxRem(border-radius, 20);
+      border: 1px solid transparent;
+      -webkit-box-shadow: 0 0 21px 0 rgba(209, 210, 209, 0.4);
+      -moz-box-shadow: 0 0 21px 0 rgba(209, 210, 209, 0.4);
+      box-shadow: 0 0 21px 0 rgba(209, 210, 209, 0.4);
+    }
+    .site-wrapper {
+      @include pxRem(width, 500);
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      -o-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+  }
+}

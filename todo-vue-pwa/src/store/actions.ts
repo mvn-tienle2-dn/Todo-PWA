@@ -20,4 +20,16 @@ export default {
   changeFilter: ({commit}: any, payload: any) => {
     commit('applyFilter', payload);
   },
+  signup: ({commit}: any, payload: any) => {
+    commit('signup', payload);
+  },
+  signin: ({commit}: any, payload: any) => {
+    commit('signin', payload);
+  },
+  signinWithGoogle: ({commit}: any, payload: any) => {
+    commit('signinWithGoogle', payload);
+  },
+  signinWithFB: ({commit}: any, payload: any) => {
+    commit('signinWithFB', payload);
+  },
 };
