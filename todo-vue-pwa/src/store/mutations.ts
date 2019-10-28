@@ -107,4 +107,12 @@ export default {
       },
     );
   },
+  setDataToState: (state: { todos: Array<State['todos'][0]>; }) => {
+    const db = firebase.firestore();
+    db.collection('todos').get().then((querySnapshot: any) => {
+      querySnapshot.forEach((doc: any) => {
+        state.todos.push(doc.data());
+      });
+    });
+  },
 };
