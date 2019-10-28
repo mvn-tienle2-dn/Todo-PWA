@@ -12,14 +12,17 @@ export default {
   addTodo: (state: { todos: Array<State['todos'][0]>; user: State['user'] }, payload: any) => {
     if (payload && payload.replace(/\s/g, '').length) {
       const db = firebase.firestore();
-      db.collection('todos').add({
-        id: Math.random().toString(32).replace('0.', ''),
+      const uid = localStorage.getItem('uid') || '';
+      const idTodo = Math.random().toString(32).replace('0.', '');
+      const doc = uid + idTodo;
+      db.collection('todos').doc(doc).set({
+        id: idTodo,
         content: payload,
         status: 'notdone',
         uid: localStorage.getItem('uid'),
       });
       state.todos.push({
-        id: Math.random().toString(32).replace('0.', ''),
+        id: idTodo,
         content: payload,
         status: 'notdone',
       });
@@ -27,7 +30,14 @@ export default {
   },
   changeStatus: (state: { todos: Array<State['todos'][0]>; }, payload: any) => {
     const todo = state.todos.find((value: any) => value.id === payload);
+    const db = firebase.firestore();
+    const uid = localStorage.getItem('uid') || '';
     if (todo) {
+      const id = todo.id;
+      const doc = uid + id;
+      db.collection('todos').doc(doc).update({
+        status: todo.status === 'done' ? 'notdone' : 'done',
+      });
       if (todo.status === 'done') {
         return todo.status = 'notdone';
       } else {
