@@ -9,8 +9,15 @@ export default {
   mutateDecrease: (state: { counter: number; }, payload: any) => {
     state.counter--;
   },
-  addTodo: (state: { todos: Array<State['todos'][0]>; }, payload: any) => {
+  addTodo: (state: { todos: Array<State['todos'][0]>; user: State['user'] }, payload: any) => {
     if (payload && payload.replace(/\s/g, '').length) {
+      const db = firebase.firestore();
+      db.collection('todos').add({
+        id: Math.random().toString(32).replace('0.', ''),
+        content: payload,
+        status: 'notdone',
+        uid: localStorage.getItem('uid'),
+      });
       state.todos.push({
         id: Math.random().toString(32).replace('0.', ''),
         content: payload,
@@ -46,6 +53,7 @@ export default {
       (user: any) => {
         state.user.email = user.user.email || '';
         state.user.uid = user.user.uid || '';
+        localStorage.setItem('uid', user.user.uid);
         const db = firebase.firestore();
         db.collection('users').add({
           email: user.user.email,
@@ -63,6 +71,7 @@ export default {
       (user: any) => {
         state.user.email = user.user.email || '';
         state.user.uid = user.user.uid || '';
+        localStorage.setItem('uid', user.user.uid);
         router.push('/todos');
       },
       (err: any) => {
@@ -76,6 +85,7 @@ export default {
       (result: any) => {
         state.user.email = result.user.email || '';
         state.user.uid = result.user.uid || '';
+        localStorage.setItem('uid', result.user.uid);
         const db = firebase.firestore();
         db.collection('users').add({
           email: result.user.email,
