@@ -3,17 +3,15 @@
     <div v-if="isProcessing">
       <Loading/>
     </div>
-    <div v-else>
-      <form>
-        <input class="input email" id="emailIn" type="email" placeholder="Email" v-model="email">
-        <input class="input password" id="passwordIn" type="password" placeholder="Password" v-model="password">
-        <button type="button" class="btn btn-primary" @click="login()">Submit</button>
-        <div class="action">
-          <button type="button" class="btn btn-fb" @click="signinWithFB()"><i class="fab fa-facebook-f"></i></button>
-          <button type="button" class="btn btn-google" @click="signinWithGoogle()"><i class="fab fa-google"></i></button>
-        </div>
-      </form>
-    </div>
+    <form>
+      <input class="input email" id="emailIn" type="email" placeholder="Email" v-model="email">
+      <input class="input password" id="passwordIn" type="password" placeholder="Password" v-model="password">
+      <button type="button" class="btn btn-primary" @click="login()">Submit</button>
+      <div class="action">
+        <button type="button" class="btn btn-fb" @click="signinWithFB()"><i class="fab fa-facebook-f"></i></button>
+        <button type="button" class="btn btn-google" @click="signinWithGoogle()"><i class="fab fa-google"></i></button>
+      </div>
+    </form>
   </div>
 </template>
 

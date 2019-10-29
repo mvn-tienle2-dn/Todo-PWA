@@ -66,16 +66,9 @@
 .loading-bro {
   @include pxRem(margin, 110 auto);
   @include pxRem(width, 43);
-  > h1 {
-    @include pxRem(margin-bottom, 16);
-    @include pxRem(font-size, 40);
-    text-align: center;
-    font-weight: 300;
-    color: map-get($color, text-dark-grey);
-  }
 }
 
-#load {
+.load {
   @include pxRem(width, 45);
   animation: loading 3s linear infinite;
   #loading-inner {

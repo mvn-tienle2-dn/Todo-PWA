@@ -197,4 +197,12 @@
       transform: translate(-50%, -50%);
     }
   }
+
+  .loading-bro {
+    @include pxRem(margin, 0 auto 40);
+    .load {
+      @include pxRem(width, 30);
+    }
+  }
+
 }
