@@ -1,5 +1,5 @@
 <template>
-  <div class="page-list-todo">
+  <div v-if="!isProcessing" class="page-list-todo">
     <div v-if="todoList.length">
       <h6 class="text-centered total">You have {{todoList.length}} task(s) here.</h6>
       <transition name="fade">
@@ -32,6 +32,11 @@
     computed: {
       ...mapGetters(['todoList']),
     },
+    data() {
+      return {
+        isProcessing: true,
+      };
+    },
     methods: {
       ...mapActions(['changeStatus', 'removeTodo', 'setDataToState']),
       handleRemoveTodo(todoId) {
@@ -43,6 +48,7 @@
     },
     mounted() {
       this.setDataToState();
+      this.isProcessing = false;
     }
   });
 </script>

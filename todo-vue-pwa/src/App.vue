@@ -1,6 +1,10 @@
 <template>
   <div id="app">
-    <router-view/>
+    <div v-if="isLoading" class="boxLoading">
+    </div>
+    <div v-else>
+      <router-view/>
+    </div>
   </div>
 </template>
 
@@ -10,6 +14,16 @@
 
   export default Vue.extend({
     name: 'todo',
+    data() {
+      return {
+        isLoading: true,
+      };
+    },
+    mounted() {
+      setTimeout(() => {
+        this.isLoading = false;
+      }, 1000);
+    },
   });
 </script>
 
