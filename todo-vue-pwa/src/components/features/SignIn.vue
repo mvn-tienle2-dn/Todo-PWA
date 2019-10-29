@@ -1,5 +1,5 @@
 <template>
-  <div class="login">
+  <div class="login-page">
     <div v-if="isProcessing">
       <Loading/>
     </div>
@@ -18,7 +18,7 @@
 <script lang="ts">
   import firebase from 'firebase';
   import { mapActions } from 'vuex';
-  import Loading from '../shared/Loading.vue'
+  import Loading from '../shared/Loading.vue';
 
   export default ({
     name: 'Login',
