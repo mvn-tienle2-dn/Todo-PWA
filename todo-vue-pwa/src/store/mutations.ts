@@ -9,10 +9,20 @@ export default {
   mutateDecrease: (state: { counter: number; }, payload: any) => {
     state.counter--;
   },
-  addTodo: (state: { todos: Array<State['todos'][0]>; }, payload: any) => {
+  addTodo: (state: { todos: Array<State['todos'][0]>; user: State['user'] }, payload: any) => {
     if (payload && payload.replace(/\s/g, '').length) {
+      const db = firebase.firestore();
+      const uid = localStorage.getItem('uid') || '';
+      const idTodo = Math.random().toString(32).replace('0.', '');
+      const doc = uid + idTodo;
+      db.collection('todos').doc(doc).set({
+        id: idTodo,
+        content: payload,
+        status: 'notdone',
+        uid: localStorage.getItem('uid'),
+      });
       state.todos.push({
-        id: Math.random().toString(32).replace('0.', ''),
+        id: idTodo,
         content: payload,
         status: 'notdone',
       });
@@ -20,7 +30,14 @@ export default {
   },
   changeStatus: (state: { todos: Array<State['todos'][0]>; }, payload: any) => {
     const todo = state.todos.find((value: any) => value.id === payload);
+    const db = firebase.firestore();
+    const uid = localStorage.getItem('uid') || '';
     if (todo) {
+      const id = todo.id;
+      const doc = uid + id;
+      db.collection('todos').doc(doc).update({
+        status: todo.status === 'done' ? 'notdone' : 'done',
+      });
       if (todo.status === 'done') {
         return todo.status = 'notdone';
       } else {
@@ -29,11 +46,29 @@ export default {
     }
   },
   removeTodo: (state: { todos: Array<State['todos'][0]>; }, payload: any) => {
+    const uid = localStorage.getItem('uid') || '';
+    const doc = uid + payload;
+    const db = firebase.firestore();
+
+    db.collection('todos').doc(doc).delete().then(() => {
+      // Shoe message delete
+    });
     state.todos = state.todos.filter((todo) => {
       return todo.id !== payload;
     });
   },
   removeCompleted: (state: { todos: Array<State['todos'][0]>; }, payload: any) => {
+    const uid = localStorage.getItem('uid') || '';
+    let doc: string;
+    const db = firebase.firestore();
+    state.todos.forEach((item: any) => {
+      if (item.status === 'done') {
+        doc = uid + item.id;
+        db.collection('todos').doc(doc).delete().then(() => {
+          // Show message
+        });
+      }
+    });
     state.todos = state.todos.filter((todo) => {
       return todo.status !== 'done';
     });
@@ -46,6 +81,7 @@ export default {
       (user: any) => {
         state.user.email = user.user.email || '';
         state.user.uid = user.user.uid || '';
+        localStorage.setItem('uid', user.user.uid);
         const db = firebase.firestore();
         db.collection('users').add({
           email: user.user.email,
@@ -63,6 +99,7 @@ export default {
       (user: any) => {
         state.user.email = user.user.email || '';
         state.user.uid = user.user.uid || '';
+        localStorage.setItem('uid', user.user.uid);
         router.push('/todos');
       },
       (err: any) => {
@@ -76,6 +113,7 @@ export default {
       (result: any) => {
         state.user.email = result.user.email || '';
         state.user.uid = result.user.uid || '';
+        localStorage.setItem('uid', result.user.uid);
         const db = firebase.firestore();
         db.collection('users').add({
           email: result.user.email,
@@ -91,10 +129,22 @@ export default {
     const provider = new firebase.auth.FacebookAuthProvider();
     firebase.auth().signInWithPopup(provider).then(
       (result: any) => {
+        state.user.email = result.user.email || '';
+        state.user.uid = result.user.uid || '';
+        localStorage.setItem('uid', result.user.uid);
         router.push('todos');
       }, (err: any) => {
         // Show error message
       },
     );
+  },
+  setDataToState: (state: { todos: Array<State['todos'][0]>; }) => {
+    const db = firebase.firestore();
+    const uid = localStorage.getItem('uid');
+    db.collection('todos').where('uid', '==', uid).get().then((querySnapshot: any) => {
+      querySnapshot.forEach((doc: any) => {
+        state.todos.push(doc.data());
+      });
+    });
   },
 };

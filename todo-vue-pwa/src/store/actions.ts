@@ -32,4 +32,7 @@ export default {
   signinWithFB: ({commit}: any, payload: any) => {
     commit('signinWithFB', payload);
   },
+  setDataToState: ({commit}: any) => {
+    commit('setDataToState');
+  },
 };

@@ -33,7 +33,7 @@
       ...mapGetters(['todoList']),
     },
     methods: {
-      ...mapActions(['changeStatus', 'removeTodo']),
+      ...mapActions(['changeStatus', 'removeTodo', 'setDataToState']),
       handleRemoveTodo(todoId) {
         this.removeTodo(todoId);
       },
@@ -41,5 +41,8 @@
         this.changeStatus(todoId);
       },
     },
+    mounted() {
+      this.setDataToState();
+    }
   });
 </script>
