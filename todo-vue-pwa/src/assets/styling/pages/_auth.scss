@@ -124,7 +124,6 @@
   }
   .action {
     .btn {
-      @include pxRem(margin-top, 32);
       @include pxRem(margin-right, 30);
       @include pxRem(width, 56);
       @include pxRem(height, 56);
@@ -195,6 +194,21 @@
       -ms-transform: translate(-50%, -50%);
       -o-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
+    }
+  }
+
+  .login-or {
+    @include pxRem(margin, 32 auto);
+    width: 90%;
+    border-bottom: 1px solid map-get($color, primary);
+    .pros {
+      @include pxRem(margin-bottom, -10);
+      text-align: center;
+      span {
+        @include pxRem(padding, 0 10);
+        background: map-get($color, white);
+        text-transform: uppercase;
+      }
     }
   }
 
