@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div v-if="isLoading" class="boxLoading">
+    <div v-if="isLoading" class="box-loading">
     </div>
     <div v-else>
       <router-view/>
@@ -28,5 +28,5 @@
 </script>
 
 <style lang="scss">
-  @import "./assets/styling/styles.scss";
+  @import './assets/styling/styles.scss';
 </style>
