@@ -9,15 +9,26 @@
           <img src="../../assets/img/logo.png" alt="Logo">
         </a>
       </div>
-      <div class="header-right">
+      <div class="header-right dropdown">
         <img src="../../assets/img/user-icon.png" alt="User">
+        <div class="dropdown-content">
+          <p @click="handleSignout()">Signout</p>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
+  import { mapActions } from 'vuex';
+
   export default ({
     name: 'Header',
-  });
+    methods: {
+      ...mapActions(['signout']),
+      handleSignout() {
+        this.signout();
+      },
+    },
+  })
 </script>

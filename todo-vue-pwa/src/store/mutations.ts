@@ -138,6 +138,12 @@ export default {
       },
     );
   },
+  signout: () => {
+    firebase.auth().signOut().then(() => {
+      localStorage.removeItem('uid');
+      router.push('auth');
+    });
+  },
   setDataToState: (state: { todos: Array<State['todos'][0]>; }) => {
     const db = firebase.firestore();
     const uid = localStorage.getItem('uid');
