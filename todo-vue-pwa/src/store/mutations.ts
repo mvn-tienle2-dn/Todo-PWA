@@ -20,6 +20,7 @@ export default {
         content: payload,
         status: 'notdone',
         uid: localStorage.getItem('uid'),
+        created_date: new Date(),
       });
       state.todos.push({
         id: idTodo,
@@ -141,7 +142,7 @@ export default {
   setDataToState: (state: { todos: Array<State['todos'][0]>; }) => {
     const db = firebase.firestore();
     const uid = localStorage.getItem('uid');
-    db.collection('todos').where('uid', '==', uid).get().then((querySnapshot: any) => {
+    db.collection('todos').where('uid', '==', uid).orderBy('created_date').get().then((querySnapshot: any) => {
       querySnapshot.forEach((doc: any) => {
         state.todos.push(doc.data());
       });
