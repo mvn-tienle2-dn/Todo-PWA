@@ -138,8 +138,9 @@ export default {
       },
     );
   },
-  signout: () => {
+  signout: (state: { todos: Array<State['todos'][0]>; }) => {
     firebase.auth().signOut().then(() => {
+      state.todos = [];
       localStorage.removeItem('uid');
       router.push('auth');
     });
