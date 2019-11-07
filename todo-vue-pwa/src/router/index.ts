@@ -24,6 +24,11 @@ const router = new Router({
       name: 'auth',
       component: () => import(/* webpackChunkName: "auth" */ '../views/Auth.vue'),
     },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: () => import(/* webpackChunkName: "auth" */ '../views/Profile.vue'),
+    },
   ],
 });
 
