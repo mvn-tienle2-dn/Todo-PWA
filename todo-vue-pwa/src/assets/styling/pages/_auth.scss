@@ -132,6 +132,7 @@
       position: relative;
       text-decoration: none;
       color: map-get($color, primary);
+      background: none;
       border: 1px solid map-get($color, primary);
       transition: all 0.2s linear 0s;
       padding: 0;
