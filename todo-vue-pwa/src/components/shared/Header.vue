@@ -12,8 +12,8 @@
       <div class="header-right dropdown" v-if="userEmail">
         <img src="../../assets/img/user-icon.png" alt="User">
         <div @click="handleSignout()" class="dropdown-content">
+          <p>Sign Out:</p>
           <p> {{ userEmail }} </p>
-          <p>Sign Out</p>
         </div>
       </div>
       <a class="link-login" href="/auth" v-else>Sign In</a>
