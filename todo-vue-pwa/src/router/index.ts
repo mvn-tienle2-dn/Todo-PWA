@@ -27,4 +27,12 @@ const router = new Router({
   ],
 });
 
+router.beforeEach((to, from, next) => {
+  if (localStorage.getItem('uid') && to.fullPath === '/auth') {
+    next('/todos');
+  } else {
+    next();
+  }
+});
+
 export default router;
