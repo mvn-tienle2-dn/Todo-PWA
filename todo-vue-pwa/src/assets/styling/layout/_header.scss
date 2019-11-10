@@ -50,6 +50,9 @@
     display: block;
   }
 
+  .link-login {
+    @include pxRem(font-size, 20);
+  }
 }
 @include respond-above("medium") {
   .page-header {

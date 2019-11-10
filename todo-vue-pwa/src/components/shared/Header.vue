@@ -15,7 +15,7 @@
           <p @click="handleSignout()"> {{ userEmail }} </p>
         </div>
       </div>
-      <a href="/auth" v-else>Login</a>
+      <a class="link-login" href="/auth" v-else>Login</a>
     </div>
   </div>
 </template>
