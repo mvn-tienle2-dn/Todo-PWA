@@ -142,7 +142,7 @@
       .fa-google, .fa-facebook-f {
         @include pxRem(margin-top, 20);
       }
-      &:last-child {
+      &:nth-child(2) {
         margin-right: 0;
       }
       &:before {
@@ -218,5 +218,8 @@
       @include pxRem(width, 30);
     }
   }
-
+  .link-not-account {
+    display: block;
+    padding-top: 15px;
+  }
 }
