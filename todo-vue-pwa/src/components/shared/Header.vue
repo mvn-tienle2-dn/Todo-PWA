@@ -11,11 +11,12 @@
       </div>
       <div class="header-right dropdown" v-if="userEmail">
         <img src="../../assets/img/user-icon.png" alt="User">
-        <div class="dropdown-content">
-          <p @click="handleSignout()"> {{ userEmail }} </p>
+        <div @click="handleSignout()" class="dropdown-content">
+          <p> {{ userEmail }} </p>
+          <p>Sign Out</p>
         </div>
       </div>
-      <a class="link-login" href="/auth" v-else>Login</a>
+      <a class="link-login" href="/auth" v-else>Sign In</a>
     </div>
   </div>
 </template>
