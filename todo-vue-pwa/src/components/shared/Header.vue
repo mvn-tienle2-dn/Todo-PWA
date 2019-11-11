@@ -9,14 +9,16 @@
           <img src="../../assets/img/logo.png" alt="Logo">
         </a>
       </div>
-      <div class="header-right dropdown" v-if="userEmail">
-        <img src="../../assets/img/user-icon.png" alt="User">
-        <div @click="handleSignout()" class="dropdown-content">
-          <p>Sign Out:</p>
-          <p> {{ userEmail }} </p>
+      <div class="header-right">
+        <div class="dropdown" v-if="userEmail">
+          <img src="../../assets/img/user-icon.png" alt="User">
+          <div @click="signout" class="dropdown-content">
+            <p>Sign Out:</p>
+            <p> {{ userEmail }} </p>
+          </div>
         </div>
+        <a class="link-login" href="/auth" v-else>Sign In</a>
       </div>
-      <a class="link-login" href="/auth" v-else>Sign In</a>
     </div>
   </div>
 </template>
@@ -36,9 +38,6 @@
     },
     methods: {
       ...mapActions(['signout']),
-      handleSignout() {
-        this.signout();
-      },
     },
     beforeMount() {
       firebase.auth().onAuthStateChanged((user) => {

@@ -77,7 +77,7 @@ export default {
   applyFilter: (state: { filter: any; }, payload: any) => {
     state.filter = payload;
   },
-  signup: (state: { user: any }, payload: any) => {
+  signup: (state: { user: any, err: string }, payload: any) => {
     firebase.auth().createUserWithEmailAndPassword(payload.email, payload.password).then(
       (user: any) => {
         state.user.email = user.user.email || '';
@@ -89,22 +89,25 @@ export default {
           uid: user.user.uid,
         });
         router.push('/todos');
+        state.err = '';
       },
       (err: any) => {
-        // Show error message
+        state.err = err.code;
       },
     );
   },
-  signin: (state: {user: any}, payload: any) => {
+  signin: (state: { user: any, err: string }, payload: any) => {
     firebase.auth().signInWithEmailAndPassword(payload.email, payload.password).then(
       (user: any) => {
         state.user.email = user.user.email || '';
         state.user.uid = user.user.uid || '';
         localStorage.setItem('uid', user.user.uid);
         router.push('/todos');
+        state.err = '';
       },
       (err: any) => {
-        // Show error message
+        console.log(err);
+        state.err = err.code;
       },
     );
   },

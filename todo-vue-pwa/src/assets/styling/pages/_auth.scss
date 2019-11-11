@@ -6,7 +6,7 @@
 
   .box {
     @include pxRem(padding, 24);
-    @include pxRem(height, 490);
+    @include pxRem(height, 550);
     position: relative;
     overflow: hidden;
     text-align: center;
@@ -220,7 +220,16 @@
     }
   }
   .link-not-account {
+    color: map-get($color, link);
     display: block;
     padding-top: 15px;
+  }
+
+  .err-msg {
+    @include pxRem(margin, 0 auto 10px); 
+    color: map-get($color, err);
+    display: block;
+    text-align: start;
+    width: 90%;
   }
 }

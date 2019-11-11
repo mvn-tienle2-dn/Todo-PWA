@@ -37,28 +37,36 @@
   }
   
   .dropdown-content {
+    @include pxRem(font-size, 15);
+    @include pxRem(min-width, 160);
+    @include pxRem(padding, 12 16);
+    background-color: map-get($color, white);
+    color: map-get($color, text-dark-grey);
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     display: none;
     position: absolute;
     right: 0;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    padding: 12px 16px;
     z-index: 1;
-    @include pxRem(font-size, 15);
-    color: map-get($color, text-dark-grey);
+    cursor: pointer;
 
-    &:hover {
+    &:hover,
+    &:focus {
       background: map-get($color, border-light);
     }
   }
   
-  .dropdown:hover .dropdown-content {
-    display: block;
+  .dropdown {
+    &:hover,
+    &:focus {
+      .dropdown-content {
+        display: block;
+      }
+    }
   }
 
   .link-login {
-    @include pxRem(font-size, 20);
+    @include pxRem(font-size, 16);
+    color: map-get($color, primary);
   }
 }
 @include respond-above("medium") {
