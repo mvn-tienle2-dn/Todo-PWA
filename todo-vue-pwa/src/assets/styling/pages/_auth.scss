@@ -220,16 +220,14 @@
     }
   }
   .link-not-account {
-    @include pxRem(padding-top, 15);
+    @include pxRem(padding-top, 32);
     color: map-get($color, link);
     display: block;
   }
 
   .err-msg {
-    @include pxRem(margin, 0 auto 10px); 
+    @include pxRem(padding-bottom, 5); 
     color: map-get($color, err);
     display: block;
-    text-align: start;
-    width: 90%;
   }
 }

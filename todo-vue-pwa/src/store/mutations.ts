@@ -106,7 +106,6 @@ export default {
         state.err = '';
       },
       (err: any) => {
-        console.log(err);
         state.err = err.code;
       },
     );
