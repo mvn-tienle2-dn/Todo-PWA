@@ -35,4 +35,7 @@ export default {
   setDataToState: ({commit}: any) => {
     commit('setDataToState');
   },
+  changeAvatar: ({commit}: any, payload: any) => {
+    commit('changeAvatar', payload);
+  },
 };

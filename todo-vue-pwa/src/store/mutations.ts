@@ -148,4 +148,13 @@ export default {
       });
     });
   },
+  changeAvatar: (state: {user: any}, payload: any) => {
+    const storageRef = firebase.storage().ref();
+    const uid = localStorage.getItem('uid');
+    const child = 'avatars/' + uid;
+    const upload = storageRef.child(child).put(payload).then((snapshot) => {
+      console.log('Upload done');
+
+    });
+  },
 };
