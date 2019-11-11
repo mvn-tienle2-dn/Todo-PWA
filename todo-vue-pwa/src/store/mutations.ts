@@ -96,7 +96,8 @@ export default {
       },
     );
   },
-  signin: (state: { user: any, err: string }, payload: any) => {
+  signin: (state: Partial<State>, payload: any) => {
+    state.isSignin = true;
     firebase.auth().signInWithEmailAndPassword(payload.email, payload.password).then(
       (user: any) => {
         state.user.email = user.user.email || '';
@@ -104,9 +105,11 @@ export default {
         localStorage.setItem('uid', user.user.uid);
         router.push('/todos');
         state.err = '';
+        state.isSignin = false;
       },
       (err: any) => {
         state.err = err.code;
+        state.isSignin = false;
       },
     );
   },

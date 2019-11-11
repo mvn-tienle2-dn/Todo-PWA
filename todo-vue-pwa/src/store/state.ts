@@ -4,6 +4,7 @@ export interface State {
   filter: null | 'done' | 'notdone';
   user: {email: string, uid: string};
   err: string;
+  isSignin: boolean;
 }
 
 export default {
@@ -11,5 +12,6 @@ export default {
   todos: [],
   filter: null,
   user: {},
-  err: ''
+  err: '',
+  isSignin: false,
 } as State;
