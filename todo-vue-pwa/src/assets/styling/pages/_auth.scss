@@ -226,7 +226,7 @@
   }
 
   .err-msg {
-    @include pxRem(padding-bottom, 5); 
+    @include pxRem(padding-bottom, 32); 
     color: map-get($color, err);
     display: block;
   }
