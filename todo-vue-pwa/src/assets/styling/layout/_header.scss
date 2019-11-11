@@ -67,6 +67,7 @@
   .link-login {
     @include pxRem(font-size, 16);
     color: map-get($color, primary);
+    font-weight: 600;
   }
 }
 @include respond-above("medium") {
