@@ -1,5 +1,6 @@
 import firebase from 'firebase';
 import { State } from './state';
+import { db } from '../main';
 import router from '../router/index';
 
 export default {
@@ -11,7 +12,6 @@ export default {
   },
   addTodo: (state: { todos: Array<State['todos'][0]>; user: State['user'] }, payload: any) => {
     if (payload && payload.replace(/\s/g, '').length) {
-      const db = firebase.firestore();
       const uid = localStorage.getItem('uid') || '';
       const idTodo = Math.random().toString(32).replace('0.', '');
       const doc = uid + idTodo;
@@ -31,7 +31,6 @@ export default {
   },
   changeStatus: (state: { todos: Array<State['todos'][0]>; }, payload: any) => {
     const todo = state.todos.find((value: any) => value.id === payload);
-    const db = firebase.firestore();
     const uid = localStorage.getItem('uid') || '';
     if (todo) {
       const id = todo.id;
@@ -49,7 +48,6 @@ export default {
   removeTodo: (state: { todos: Array<State['todos'][0]>; }, payload: any) => {
     const uid = localStorage.getItem('uid') || '';
     const doc = uid + payload;
-    const db = firebase.firestore();
 
     db.collection('todos').doc(doc).delete().then(() => {
       // Shoe message delete
@@ -61,7 +59,6 @@ export default {
   removeCompleted: (state: { todos: Array<State['todos'][0]>; }, payload: any) => {
     const uid = localStorage.getItem('uid') || '';
     let doc: string;
-    const db = firebase.firestore();
     state.todos.forEach((item: any) => {
       if (item.status === 'done') {
         doc = uid + item.id;
@@ -83,7 +80,6 @@ export default {
         state.user.email = user.user.email || '';
         state.user.uid = user.user.uid || '';
         localStorage.setItem('uid', user.user.uid);
-        const db = firebase.firestore();
         db.collection('users').add({
           email: user.user.email,
           uid: user.user.uid,
@@ -122,7 +118,6 @@ export default {
         state.user.email = result.user.email || '';
         state.user.uid = result.user.uid || '';
         localStorage.setItem('uid', result.user.uid);
-        const db = firebase.firestore();
         db.collection('users').add({
           email: result.user.email,
           uid: result.user.uid,
@@ -154,7 +149,6 @@ export default {
     });
   },
   setDataToState: (state: { todos: Array<State['todos'][0]>; }) => {
-    const db = firebase.firestore();
     const uid = localStorage.getItem('uid');
     db.collection('todos').where('uid', '==', uid).orderBy('created_date').get().then((querySnapshot: any) => {
       querySnapshot.forEach((doc: any) => {
