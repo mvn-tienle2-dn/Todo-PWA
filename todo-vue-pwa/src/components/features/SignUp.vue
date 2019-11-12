@@ -7,7 +7,7 @@
       <span class="err-msg" v-if="errMsg && !isProcessing"> {{ errMsg }} </span>
       <input class="input email" id="emailIn" type="email" placeholder="Email" v-model="email">
       <input class="input password" id="passwordIn" type="password" placeholder="Password" v-model="password">
-      <button type="button" class="btn btn-primary" @click="signUp()">Submit</button>
+      <button type="button" class="btn btn-primary" @click="signUp()">Register</button>
     </form>
   </div>
 </template>

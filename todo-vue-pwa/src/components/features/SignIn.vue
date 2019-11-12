@@ -7,7 +7,7 @@
       <span class="err-msg" v-if="errMsg && !isSignin"> {{ errMsg }} </span>
       <input class="input email" id="emailIn" type="email" placeholder="Email" v-model="email">
       <input class="input password" id="passwordIn" type="password" placeholder="Password" v-model="password">
-      <button type="button" class="btn btn-primary" @click="login()">Submit</button>
+      <button type="button" class="btn btn-primary" @click="login()">Log In</button>
       <div class="login-or">
         <h5 class="pros"><span>Or</span></h5>
       </div>
