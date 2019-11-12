@@ -1,6 +1,6 @@
 <template>
   <div class="page-list-todo">
-    <div v-if="isProcessing">
+    <div v-if="isProgress">
       <Loading/>
     </div>
     <div v-else>
@@ -29,8 +29,7 @@
 </template>
 
 <script lang="ts">
-  import { mapGetters } from 'vuex';
-  import { mapActions } from 'vuex';
+  import { mapGetters, mapActions, mapState } from 'vuex';
   import Loading from '../shared/Loading.vue';
 
   export default ({
@@ -40,6 +39,7 @@
     },
     computed: {
       ...mapGetters(['todoList']),
+      ...mapState(['isProgress']),
     },
     data() {
       return {

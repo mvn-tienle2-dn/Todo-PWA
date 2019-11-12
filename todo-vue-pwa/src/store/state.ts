@@ -5,6 +5,7 @@ export interface State {
   user: {email: string, uid: string};
   err: string;
   isSignin: boolean;
+  isProgress: boolean;
 }
 
 export default {
@@ -14,4 +15,5 @@ export default {
   user: {},
   err: '',
   isSignin: false,
+  isProgress: true,
 } as State;

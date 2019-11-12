@@ -7,14 +7,16 @@
       <span class="err-msg" v-if="errMsg && !isSignin"> {{ errMsg }} </span>
       <input class="input email" id="emailIn" type="email" placeholder="Email" v-model="email">
       <input class="input password" id="passwordIn" type="password" placeholder="Password" v-model="password">
-      <button type="button" class="btn btn-primary" @click="login()">Submit</button>
+      <button type="button" class="btn btn-primary" :disabled="!email || !password" @click="login()">Log In</button>
       <div class="login-or">
         <h5 class="pros"><span>Or</span></h5>
       </div>
       <div class="action">
         <button type="button" class="btn btn-fb" @click="signinWithFB()"><i class="fab fa-facebook-f"></i></button>
         <button type="button" class="btn btn-google" @click="signinWithGoogle()"><i class="fab fa-google"></i></button>
-        <a class="link-not-account" href="/todos">Continue without an account</a>
+      </div>
+      <div class="text-centered">
+        <router-link class="link-not-account" to="/todos">Continue without an account</router-link>
       </div>
     </form>
   </div>
@@ -41,7 +43,7 @@
       ...mapState(['isSignin'])
     },
     methods: {
-      ...mapActions(['signin', 'signinWithGoogle', 'signinWithFB']),
+      ...mapActions(['signin', 'signinWithGoogle', 'signinWithFB', 'resetStore']),
       login() {
         const payload = {
           email: this.email,
@@ -49,6 +51,9 @@
         };
         this.signin(payload);
       },
+    },
+    mounted() {
+      this.resetStore();
     },
   });
 </script>
