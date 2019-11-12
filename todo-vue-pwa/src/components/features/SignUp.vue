@@ -42,5 +42,8 @@
         this.signup(payload);
       },
     },
+    mounted() {
+      this.resetStore();
+    },
   });
 </script>

@@ -43,7 +43,7 @@
       ...mapState(['isSignin'])
     },
     methods: {
-      ...mapActions(['signin', 'signinWithGoogle', 'signinWithFB']),
+      ...mapActions(['signin', 'signinWithGoogle', 'signinWithFB', 'resetStore']),
       login() {
         const payload = {
           email: this.email,
@@ -51,6 +51,9 @@
         };
         this.signin(payload);
       },
+    },
+    mounted() {
+      this.resetStore();
     },
   });
 </script>

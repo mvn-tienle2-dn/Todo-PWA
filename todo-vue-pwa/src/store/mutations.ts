@@ -161,4 +161,8 @@ export default {
       });
     });
   },
+  resetStore: (state: Partial<State>) => {
+    state.todos = [];
+    state.err = '';
+  },
 };

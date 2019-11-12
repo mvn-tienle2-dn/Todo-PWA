@@ -38,4 +38,7 @@ export default {
   setDataToState: ({commit}: any) => {
     commit('setDataToState');
   },
+  resetStore: ({commit}: any) => {
+    commit('resetStore');
+  },
 };
