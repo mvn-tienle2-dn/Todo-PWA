@@ -14,7 +14,9 @@
       <div class="action">
         <button type="button" class="btn btn-fb" @click="signinWithFB()"><i class="fab fa-facebook-f"></i></button>
         <button type="button" class="btn btn-google" @click="signinWithGoogle()"><i class="fab fa-google"></i></button>
-        <a class="link-not-account" href="/todos">Continue without an account</a>
+      </div>
+      <div class="text-centered">
+        <router-link class="link-not-account" to="/todos">Continue without an account</router-link>
       </div>
     </form>
   </div>

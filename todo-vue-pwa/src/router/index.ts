@@ -24,6 +24,16 @@ const router = new Router({
       name: 'auth',
       component: () => import(/* webpackChunkName: "auth" */ '../views/Auth.vue'),
     },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import(/* webpackChunkName: "auth" */ '../views/LogIn.vue'),
+    },
+    {
+      path: '/signup',
+      name: 'signup',
+      component: () => import(/* webpackChunkName: "auth" */ '../views/SignUp.vue'),
+    },
   ],
 });
 

@@ -100,8 +100,10 @@ export default {
     state.isSignin = true;
     firebase.auth().signInWithEmailAndPassword(payload.email, payload.password).then(
       (user: any) => {
-        state.user.email = user.user.email || '';
-        state.user.uid = user.user.uid || '';
+        if (state.user) {
+          state.user.email = user.user.email || '';
+          state.user.uid = user.user.uid || '';
+        }
         localStorage.setItem('uid', user.user.uid);
         router.push('/todos');
         state.err = '';
