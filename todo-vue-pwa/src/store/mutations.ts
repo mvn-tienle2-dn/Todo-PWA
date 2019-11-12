@@ -88,7 +88,7 @@ export default {
           email: user.user.email,
           uid: user.user.uid,
         });
-        router.push('/todos');
+        router.push('/login');
         state.err = '';
       },
       (err: any) => {
@@ -150,7 +150,7 @@ export default {
     firebase.auth().signOut().then(() => {
       state.todos = [];
       localStorage.removeItem('uid');
-      router.push('auth');
+      router.push('login');
     });
   },
   setDataToState: (state: { todos: Array<State['todos'][0]>; }) => {
