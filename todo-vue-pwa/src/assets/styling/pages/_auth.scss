@@ -216,7 +216,7 @@
   }
 
   .loading-bro {
-    @include pxRem(margin, 0 auto 40);
+    @include pxRem(margin, 0 auto 28);
     .load {
       @include pxRem(width, 30);
     }

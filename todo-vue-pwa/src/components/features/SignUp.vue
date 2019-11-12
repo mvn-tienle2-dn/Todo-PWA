@@ -1,10 +1,10 @@
 <template>
   <div class="signup-page">
-    <div v-if="isProcessing">
+    <div v-if="isSignin">
       <Loading/>
     </div>
     <form>
-      <span class="err-msg" v-if="errMsg && !isProcessing"> {{ errMsg }} </span>
+      <span class="err-msg" v-if="errMsg && !isSignin"> {{ errMsg }} </span>
       <input class="input email" id="emailIn" type="email" placeholder="Email" v-model="email">
       <input class="input password" id="passwordIn" type="password" placeholder="Password" v-model="password">
       <button type="button" class="btn btn-primary" @click="signUp()">Register</button>
@@ -14,7 +14,7 @@
 
 <script lang="ts">
   import firebase from 'firebase';
-  import { mapActions, mapGetters } from 'vuex';
+  import { mapActions, mapGetters, mapState } from 'vuex';
   import Loading from '../shared/Loading.vue';
 
   export default ({
@@ -26,25 +26,21 @@
       return {
         email: null,
         password: null,
-        isProcessing: false,
       };
     },
     computed: {
       ...mapGetters(['errMsg']),
+      ...mapState(['isSignin']),
     },
     methods: {
       ...mapActions(['signup']),
       signUp() {
-        this.isProcessing = true;
         const payload = {
           email: this.email,
-          password: this.password
+          password: this.password,
         };
         this.signup(payload);
-        setTimeout(() => {
-          this.isProcessing = false;
-        }, 2000);
-      }
-    }
+      },
+    },
   });
 </script>

@@ -17,7 +17,7 @@
             <p> {{ userEmail }} </p>
           </div>
         </div>
-        <a class="link-login" href="/auth" v-else>Sign In</a>
+        <router-link class="link-login" to="/login" v-else>Sign In</router-link>
       </div>
     </div>
   </div>
@@ -41,7 +41,7 @@
     },
     beforeMount() {
       firebase.auth().onAuthStateChanged((user) => {
-        if (user) {          
+        if (user) {
           this.userEmail = user.email;
         }
       });

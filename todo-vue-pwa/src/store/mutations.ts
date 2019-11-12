@@ -74,11 +74,14 @@ export default {
   applyFilter: (state: { filter: any; }, payload: any) => {
     state.filter = payload;
   },
-  signup: (state: { user: any, err: string }, payload: any) => {
+  signup: (state: Partial<State>, payload: any) => {
+    state.isSignin = true;
     firebase.auth().createUserWithEmailAndPassword(payload.email, payload.password).then(
       (user: any) => {
-        state.user.email = user.user.email || '';
-        state.user.uid = user.user.uid || '';
+        if (state.user) {
+          state.user.email = user.user.email || '';
+          state.user.uid = user.user.uid || '';
+        }
         localStorage.setItem('uid', user.user.uid);
         db.collection('users').add({
           email: user.user.email,
@@ -86,9 +89,11 @@ export default {
         });
         router.push('/login');
         state.err = '';
+        state.isSignin = false;
       },
       (err: any) => {
         state.err = err.code;
+        state.isSignin = false;
       },
     );
   },
