@@ -153,13 +153,19 @@ export default {
       router.push('login');
     });
   },
-  setDataToState: (state: { todos: Array<State['todos'][0]>; }) => {
+  setDataToState: (state: { todos: Array<State['todos'][0]>; isProgress: boolean }) => {
+    state.isProgress = true;
     const uid = localStorage.getItem('uid');
-    db.collection('todos').where('uid', '==', uid).orderBy('created_date').get().then((querySnapshot: any) => {
-      querySnapshot.forEach((doc: any) => {
-        state.todos.push(doc.data());
-      });
-    });
+    db.collection('todos').where('uid', '==', uid).orderBy('created_date').get().then(
+      (querySnapshot: any) => {
+        querySnapshot.forEach((doc: any) => {
+          state.todos.push(doc.data());
+        });
+        state.isProgress = false;
+      }, (err: any) => {
+        state.isProgress = false;
+      },
+    );
   },
   resetStore: (state: Partial<State>) => {
     state.todos = [];
