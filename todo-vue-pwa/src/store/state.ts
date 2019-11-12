@@ -3,6 +3,8 @@ export interface State {
   todos: [] | Array<{ id: string; content: string; status: State['filter']; }>;
   filter: null | 'done' | 'notdone';
   user: {email: string, uid: string};
+  err: string;
+  isSignin: boolean;
 }
 
 export default {
@@ -10,4 +12,6 @@ export default {
   todos: [],
   filter: null,
   user: {},
+  err: '',
+  isSignin: false,
 } as State;

@@ -30,6 +30,45 @@
       @include pxRem(height, 30px);
     }
   }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    @include pxRem(font-size, 15);
+    @include pxRem(min-width, 160);
+    @include pxRem(padding, 12 16);
+    @include pxRem(box-shadow, 0 8 16 0 rgba(0,0,0,0.2));
+    background-color: map-get($color, white);
+    color: map-get($color, text-dark-grey);
+    display: none;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      background: map-get($color, border-light);
+    }
+  }
+  
+  .dropdown {
+    &:hover,
+    &:focus {
+      .dropdown-content {
+        display: block;
+      }
+    }
+  }
+
+  .link-login {
+    @include pxRem(font-size, 16);
+    color: map-get($color, primary);
+    font-weight: 600;
+  }
 }
 @include respond-above("medium") {
   .page-header {

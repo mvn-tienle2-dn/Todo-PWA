@@ -10,14 +10,41 @@
         </a>
       </div>
       <div class="header-right">
-        <img src="../../assets/img/user-icon.png" alt="User">
+        <div class="dropdown" v-if="userEmail">
+          <img src="../../assets/img/user-icon.png" alt="User">
+          <div @click="signout" class="dropdown-content">
+            <p>Sign Out:</p>
+            <p> {{ userEmail }} </p>
+          </div>
+        </div>
+        <a class="link-login" href="/auth" v-else>Sign In</a>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
+  import firebase from 'firebase';
+  import { mapActions } from 'vuex';
+
   export default ({
     name: 'Header',
-  });
+    data() {
+      return {
+        userEmail: null,
+      }
+    },
+    computed: {
+    },
+    methods: {
+      ...mapActions(['signout']),
+    },
+    beforeMount() {
+      firebase.auth().onAuthStateChanged((user) => {
+        if (user) {          
+          this.userEmail = user.email;
+        }
+      });
+    },
+  })
 </script>

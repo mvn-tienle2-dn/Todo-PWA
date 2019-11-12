@@ -6,7 +6,7 @@
 
   .box {
     @include pxRem(padding, 24);
-    @include pxRem(height, 490);
+    @include pxRem(height, 550);
     position: relative;
     overflow: hidden;
     text-align: center;
@@ -132,6 +132,7 @@
       position: relative;
       text-decoration: none;
       color: map-get($color, primary);
+      background: none;
       border: 1px solid map-get($color, primary);
       transition: all 0.2s linear 0s;
       padding: 0;
@@ -142,7 +143,7 @@
       .fa-google, .fa-facebook-f {
         @include pxRem(margin-top, 20);
       }
-      &:last-child {
+      &:nth-child(2) {
         margin-right: 0;
       }
       &:before {
@@ -218,5 +219,15 @@
       @include pxRem(width, 30);
     }
   }
+  .link-not-account {
+    @include pxRem(padding-top, 32);
+    color: map-get($color, link);
+    display: block;
+  }
 
+  .err-msg {
+    @include pxRem(padding-bottom, 32); 
+    color: map-get($color, err);
+    display: block;
+  }
 }

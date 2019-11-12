@@ -4,9 +4,9 @@
       <Loading/>
     </div>
     <form>
+      <span class="err-msg" v-if="errMsg && !isProcessing"> {{ errMsg }} </span>
       <input class="input email" id="emailIn" type="email" placeholder="Email" v-model="email">
       <input class="input password" id="passwordIn" type="password" placeholder="Password" v-model="password">
-      <input class="input password" id="passwordIn" type="password" placeholder="Confirm password" v-model="confirmpw">
       <button type="button" class="btn btn-primary" @click="signUp()">Submit</button>
     </form>
   </div>
@@ -14,7 +14,7 @@
 
 <script lang="ts">
   import firebase from 'firebase';
-  import { mapActions } from 'vuex';
+  import { mapActions, mapGetters } from 'vuex';
   import Loading from '../shared/Loading.vue';
 
   export default ({
@@ -26,9 +26,11 @@
       return {
         email: null,
         password: null,
-        confirmpw: null,
         isProcessing: false,
       };
+    },
+    computed: {
+      ...mapGetters(['errMsg']),
     },
     methods: {
       ...mapActions(['signup']),
